@@ -1,0 +1,173 @@
+﻿@model IEnumerable<ENT.Ent.TblPersona>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdPersona)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumeroDocumento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdTipoDocumento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdGenero)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdOrientacionSexual)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombres)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apellidos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdIdentidadGenero)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Edad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdEtnia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdLocalidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EsVictimaConflictoA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EsDiscapacitado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdTipoDiscapacidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdTipoVivienda)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdSeguridadSocial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdNivielEscolaridad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EsJefeHogar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdEstratiSocioEconomico)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdLocalidadTrabajo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdJornadaTrabajo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdSubsidios)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdUsuario)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdPersona)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumeroDocumento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdTipoDocumento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdGenero)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdOrientacionSexual)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombres)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellidos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdIdentidadGenero)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Edad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdEtnia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdLocalidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EsVictimaConflictoA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EsDiscapacitado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdTipoDiscapacidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdTipoVivienda)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdSeguridadSocial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdNivielEscolaridad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EsJefeHogar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdEstratiSocioEconomico)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdLocalidadTrabajo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdJornadaTrabajo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdSubsidios)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdUsuario)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

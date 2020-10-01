@@ -21,13 +21,13 @@ namespace WebApplicationOIFUS.Controllers.Login
             return View();
         }
         [HttpPost]
-        public IActionResult Index(ENT.Ent.Usuario usuario, HttpContext httpContext)
+        public IActionResult Index(ENT.Ent.Usuario usuario)
         {
             ENT.Ent.Usuario Usr = usuarioBll.GetUser(usuario.Usr, usuario.Pasword);
             if(Usr != null){
             UserManager userManager = new UserManager(usuarioBll);
-            userManager.SignIn(httpContext, usuario);
-                return View("/Persona");
+            userManager.SignIn(this.HttpContext, usuario);
+                return RedirectToAction("Index","Persona");
             }
             ViewData.Add("Error", "Fallo de autenticación");
             return View();

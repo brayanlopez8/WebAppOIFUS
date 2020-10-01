@@ -11,7 +11,9 @@ namespace BLL.Implememtation
     {
         public void DeleteNotification()
         {
+            //this.repository = repository;
             throw new NotImplementedException();
+
         }
 
         public Notificaciones GetNotification(int Id)

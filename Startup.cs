@@ -4,6 +4,7 @@ using BLL.Interface;
 using DAL;
 using DAL.Contract;
 using DAL.DBContext;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -21,6 +22,7 @@ namespace WebApplicationOIFUS
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+
         }
 
         public IConfiguration Configuration { get; }
@@ -49,7 +51,13 @@ namespace WebApplicationOIFUS
             services.AddTransient<IPersonaBLL, PersonasBLL>();
             services.AddTransient(typeof(ITablaTipoBLL<>), typeof(TablaTipoBLL<>));
             services.AddTransient<IUsuarioBLL, UsuarioBLL>();
- 
+
+            //services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                                            .AddCookie(options =>
+                                            {
+                                                options.LoginPath = "/Login";
+                                            });
 
             var section = Configuration.GetSection("ConnectionStrings");
             services.Configure<MyConfig>(section);
@@ -75,6 +83,7 @@ namespace WebApplicationOIFUS
 
             app.UseStaticFiles();
             app.UseCookiePolicy();
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {

@@ -1,4 +1,4 @@
-﻿
+﻿@model ENT.Ent.Usuario
 @{
     ViewData["Title"] = "Index";
 }
@@ -6,22 +6,38 @@
 
 <div class="text-center">
     <h1 class="display-4">Inicio de sesión</h1>
-    <form action="">
+    @using (Html.BeginForm())
+    {
         @*<div class="input-group">
                 <label class="input-group-addon" for="fname">Usuario:</label>
                 <input class="form-control" type="text" id="fUsuaro" name="fUsuaro"><br><br>
             </div>*@
         <div class="input-group">
             <span class="input-group-addon col-lg-3" id="basic-addon3">Usuario</span>
-            <input type="text" class="form-control col-lg-9" id="basic-url" aria-describedby="basic-addon3">
+            @*<input type="text" class="form-control col-lg-9" id="basic-url" aria-describedby="basic-addon3">*@
+            @Html.TextBoxFor(model => model.Usr,
+                                                        new
+                                                        {
+                                                            @class = "form-control col-lg-9",
+                                                            @maxlength = "35",
+                                                            @placeholder = "Usuario",
+                                                            @required = ""
+                                                        })
         </div>
         <div class="input-group">
             <span class="input-group-addon col-lg-3" id="basic-addon3">Contraseña</span>
-            <input type="password" class="form-control col-lg-9" id="basic-url" aria-describedby="basic-addon3">
+            @*<input type="password" class="form-control col-lg-9" id="basic-url" aria-describedby="basic-addon3">*@
+            @Html.PasswordFor(model => model.Pasword,
+                                                       new
+                                                       {
+                                                           @class = "form-control col-lg-9",
+                                                           @maxlength = "60",
+                                                           @placeholder = "Contraseña",
+                                                           @required = ""
+                                                       })
         </div>
         @*<label for="lname">Contraseña:</label>
             <input type="text" id="fUsuario" name="fUsuario"><br><br>*@
-        <input class="btn btn-success" type="submit" value="Submit">
-    </form>
-
+        <input class="btn btn-success" type="submit" value="Iniciar sesión">
+    }
 </div>
