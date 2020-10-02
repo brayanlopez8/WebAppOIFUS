@@ -1,5 +1,7 @@
 ﻿using BLL.Interface;
+using DAL.UnitOfWork;
 using ENT.Ent;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,54 +11,56 @@ namespace BLL.Implememtation
 {
     public class PersonasBLL : IPersonaBLL
     {
+        private UnitOfWork unitOfWork;
+        private IConfiguration configuration;
+        public PersonasBLL(IConfiguration configuration)
+        {
+            this.configuration = configuration;
+            this.unitOfWork = new UnitOfWork(configuration);
+
+        }
+
         public TblPersona Create(TblPersona person)
         {
-            throw new NotImplementedException();
+            return unitOfWork.TblPersonaRepository.add(person);
         }
 
         public Task<TblPersona> CreateAsync(TblPersona person)
         {
-            throw new NotImplementedException();
-        }
-
-        public List<TblPersona> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public TblPersona GetAllById(int Id)
-        {
-            throw new NotImplementedException();
+            return  unitOfWork.TblPersonaRepository.addAsyc(person);
         }
 
         public TblPersona GetById(int id)
         {
-            throw new NotImplementedException();
+            return unitOfWork.TblPersonaRepository.FindFirstWhere(c => c.Id == id);
         }
 
-        public Task<TblPersona> GetByIdAsync(int id)
+        public async Task<TblPersona>  GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            var Persons=  await unitOfWork.TblPersonaRepository.FindFirstWhereAsync(c => c.Id == id);
+            return Persons;
         }
 
         public List<TblPersona> GetList()
         {
-            throw new NotImplementedException();
+          return  unitOfWork.TblPersonaRepository.Getall().ToList();
         }
 
-        public Task<List<TblPersona>> GetListAsync()
+        public async Task<List<TblPersona>> GetListAsync()
         {
-            throw new NotImplementedException();
+            var Persons = await unitOfWork.TblPersonaRepository.GetallAsyc();
+            return Persons.ToList();
         }
 
         public TblPersona Put(TblPersona person)
         {
-            throw new NotImplementedException();
+            return unitOfWork.TblPersonaRepository.Update(person);
         }
 
-        public Task<TblPersona> PutAsync(TblPersona person)
+        public async Task<TblPersona> PutAsync(TblPersona person)
         {
-            throw new NotImplementedException();
+            var Persons = await unitOfWork.TblPersonaRepository.UpdateAsync(person);
+            return Persons;
         }
     }
 }

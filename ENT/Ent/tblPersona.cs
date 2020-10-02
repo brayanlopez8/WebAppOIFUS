@@ -5,7 +5,6 @@ namespace ENT.Ent
 {
     public class TblPersona: GenericEntity
     {
-        public int IdPersona { get; set; }
         public long? NumeroDocumento { get; set; }
         public int? IdTipoDocumento { get; set; }
         public int? IdGenero { get; set; }

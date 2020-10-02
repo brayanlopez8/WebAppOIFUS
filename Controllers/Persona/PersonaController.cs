@@ -34,8 +34,8 @@ namespace WebApplicationOIFUS.Controllers.Persona
         }
         public IActionResult Index()
         {
-            List<TblPersona> personas = new List<TblPersona>();
-            return View(personas);
+           
+            return View(personaBLL.GetList());
         }
     }
 }

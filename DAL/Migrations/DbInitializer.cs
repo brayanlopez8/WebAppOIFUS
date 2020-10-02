@@ -31,6 +31,7 @@ namespace DAL.Migrations
                     SeedTblSubsidio(context);
                     SeedTblTipoDeVivienda(context);
                     SeedTblTipoDocumento(context);
+                    SeedTblPersona(context);
 
                     SeedUserAdmin(context);
                 }
@@ -41,6 +42,42 @@ namespace DAL.Migrations
                 throw e;
             }
 
+        }
+
+        private static void SeedTblPersona(MyDBContext context)
+        {
+            NewPerson(context,"Luz Angelica",1234567);
+            NewPerson(context, "Miguel Angel", 12345678);
+            NewPerson(context, "Johanna Andea", 12345679);
+            context.SaveChanges();
+        }
+
+        private static void NewPerson(MyDBContext context, string name,int numeroDocumento)
+        {
+            context.tblPersona.Add(new ENT.Ent.TblPersona
+            {
+                NumeroDocumento = numeroDocumento,
+                IdTipoDocumento = 1,
+                IdGenero = 1,
+                IdIdentidadGenero = 1,
+                Apellidos = "Lopez Chaves",
+                Nombres = name,
+                Edad = 34,
+                IdEtnia = 1,
+                Telefono = 73121212,
+                IdLocalidad = 1,
+                EsVictimaConflictoA = false,
+                EsDiscapacitado = false,
+                IdTipoDiscapacidad = 1,
+                IdTipoVivienda = 1,
+                IdSeguridadSocial = 1,
+                IdNivielEscolaridad = 1,
+                EsJefeHogar = false,
+                IdEstratiSocioEconomico = 1,
+                IdLocalidadTrabajo = 1,
+                IdJornadaTrabajo = 1,
+                IdSubsidios = 1
+            });
         }
 
         private static void SeedUserAdmin(MyDBContext context)
