@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ViewModel.ViewModels;
 
 namespace BLL.Interface
 {
@@ -10,6 +11,8 @@ namespace BLL.Interface
     {
 
         List<TblPersona> GetList();
+
+         List<PersonaVM> GetListVM();
         Task<List<TblPersona>> GetListAsync();
         TblPersona GetById(int id);
         Task<TblPersona> GetByIdAsync(int id);

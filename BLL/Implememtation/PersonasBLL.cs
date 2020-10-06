@@ -1,4 +1,5 @@
-﻿using BLL.Interface;
+﻿using AutoMapper;
+using BLL.Interface;
 using DAL.UnitOfWork;
 using ENT.Ent;
 using Microsoft.Extensions.Configuration;
@@ -6,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ViewModel.ViewModels;
 
 namespace BLL.Implememtation
 {
@@ -13,10 +15,13 @@ namespace BLL.Implememtation
     {
         private UnitOfWork unitOfWork;
         private IConfiguration configuration;
+         private IMapper iMapper = null;
         public PersonasBLL(IConfiguration configuration)
         {
             this.configuration = configuration;
             this.unitOfWork = new UnitOfWork(configuration);
+            var config = BLL.Automapper.AutoMapperConfig.ConfigurationAutomapper();
+            iMapper = config.CreateMapper();
 
         }
 
@@ -61,6 +66,25 @@ namespace BLL.Implememtation
         {
             var Persons = await unitOfWork.TblPersonaRepository.UpdateAsync(person);
             return Persons;
+        }
+
+        List<PersonaVM> IPersonaBLL.GetListVM()
+        {
+            var person =  unitOfWork.TblPersonaRepository.Getall().ToList();
+           return MappingPersonVM(person);
+        }
+
+        private List<PersonaVM> MappingPersonVM(List<TblPersona> person)
+        {
+            List<PersonaVM> personaVMs = new List<PersonaVM>();
+            foreach (var item in person)
+            {
+                PersonaVM persona = new PersonaVM();
+               iMapper.Map<TblPersona, PersonaVM>(item);
+               persona.Localidad = unitOfWork.TblLocalidadViveRepository.FindById(item.IdLocalidad.Value).Descripcion;
+               persona.LocalidadTrabajo = unitOfWork.TblLocalidadTrabajaRepository.FindById(item.IdLocalidad.Value).Descripcion;
+            }
+            throw new NotImplementedException();
         }
     }
 }

@@ -28,5 +28,7 @@ namespace ENT.Ent
         public int? IdJornadaTrabajo { get; set; }
         public int? IdSubsidios { get; set; }
         public int? IdUsuario { get; set; }
+
+        public virtual TblGenero Genero{ get; set; }
     }
 }

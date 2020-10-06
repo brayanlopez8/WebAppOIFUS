@@ -107,6 +107,7 @@ namespace DAL.UnitOfWork
                 return tblPersonaRepository;
             }
         }
+         
 
         public Repository<TblDiscapacidad> TblDiscapacidadRepository
         {

@@ -8,5 +8,6 @@ namespace BLL.Interface
     public interface ITablaTipoBLL<T> where T: new()
     {
         IEnumerable<T> GetList();
+
     }
 }

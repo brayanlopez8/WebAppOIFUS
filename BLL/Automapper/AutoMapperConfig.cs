@@ -19,6 +19,9 @@ namespace BLL.Automapper
 
                 cfg.CreateMap<Country, CountryVM>();
                 cfg.CreateMap<CountryVM, Country>();
+
+                cfg.CreateMap<TblPersona,PersonaVM>();
+                cfg.CreateMap<PersonaVM,TblPersona>();
             });
 
             return config;

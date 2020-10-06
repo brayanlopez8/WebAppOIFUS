@@ -17,6 +17,11 @@ namespace BLL.Implememtation
             this.repository = repository;
         }
 
+        public T GetById(int Id)
+        {
+            return repository.FindFirstWhere(c=> c.Id ==Id);
+        }
+
         public IEnumerable<T> GetList()
         {
             return repository.Getall();
