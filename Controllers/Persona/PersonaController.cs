@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BLL.Interface;
 using ENT.Ent;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApplicationOIFUS.Controllers.Persona
@@ -32,6 +33,8 @@ namespace WebApplicationOIFUS.Controllers.Persona
         {
             this.personaBLL = personaBLL;
         }
+        
+        [Authorize]
         public IActionResult Index()
         {
            
