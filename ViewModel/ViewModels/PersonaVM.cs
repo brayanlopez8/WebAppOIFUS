@@ -5,6 +5,7 @@ namespace ViewModel.ViewModels
 {
     public class PersonaVM
     {
+        public int Id {get;set;}
         public string NumeroDocumento { get; set; }
         public string TipoDocumento { get; set; }
         public string Genero { get; set; }
@@ -26,6 +27,7 @@ namespace ViewModel.ViewModels
         public string EstratiSocioEconomico { get; set; }
         public string LocalidadTrabajo { get; set; }
         public string JornadaTrabajo { get; set; }
+        public string TipoSubsidio { get; internal set; }
     }
 
 }

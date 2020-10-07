@@ -12,24 +12,7 @@ namespace WebApplicationOIFUS.Controllers.Persona
     public class PersonaController : Controller
     {
         private IPersonaBLL personaBLL;
-        public PersonaController(IPersonaBLL personaBLL, ITablaTipoBLL<Contactos> contactos,
-                        INotificaciones notificacionesBLL,
-                        ITablaTipoBLL<TblDiscapacidad> tbldiscapacidadBLL,
-                        ITablaTipoBLL<TblEstratoSocioEconomico> tblestratosocioeconomicoBLL,
-                        ITablaTipoBLL<TblEtnia> tbletniaBLL,
-                        ITablaTipoBLL<TblGenero> tblgeneroBLL,
-                        ITablaTipoBLL<TblIdentidaDeGenero> tblidentidadegeneroBLL,
-                        ITablaTipoBLL<TblJornadaDeTrabajo> tbljornadadetrabajoBLL,
-                        ITablaTipoBLL<TblLocalidadTrabaja> tbllocalidadtrabajaBLL,
-                        ITablaTipoBLL<TblLocalidadVive> tbllocalidadviveBLL,
-                        ITablaTipoBLL<TblNivelDeEscolaridad> tblniveldeescolaridadBLL,
-                        ITablaTipoBLL<TblOrientacion> tblorientacionBLL,
-                        ITablaTipoBLL<TblSeguridadSocial> tblseguridadsocialBLL,
-                        ITablaTipoBLL<TblSubsidio> tblsubsidioBLL,
-                        ITablaTipoBLL<TblTipoDeVivienda> tbltipodeviviendaBLL,
-                        ITablaTipoBLL<TblTipoDocumento> tbltipodocumentoBLL,
-                        IUsuarioBLL usuarioBLL
-                       )
+        public PersonaController(IPersonaBLL personaBLL)
         {
             this.personaBLL = personaBLL;
         }
@@ -37,8 +20,7 @@ namespace WebApplicationOIFUS.Controllers.Persona
         [Authorize]
         public IActionResult Index()
         {
-           
-            return View(personaBLL.GetList());
+            return View(personaBLL.GetListVM());
         }
     }
 }

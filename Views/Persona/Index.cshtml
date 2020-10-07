@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ENT.Ent.TblPersona>
+﻿@model IEnumerable<ViewModel.ViewModels.PersonaVM>
 
 @{
     ViewData["Title"] = "Index";
@@ -18,13 +18,13 @@
                     @Html.DisplayNameFor(model => model.NumeroDocumento)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.IdTipoDocumento)
+                    @Html.DisplayNameFor(model => model.TipoDocumento)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.IdGenero)
+                    @Html.DisplayNameFor(model => model.Genero)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.IdOrientacionSexual)
+                    @Html.DisplayNameFor(model => model.OrientacionSexual)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Nombres)
@@ -33,19 +33,19 @@
                     @Html.DisplayNameFor(model => model.Apellidos)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.IdIdentidadGenero)
+                    @Html.DisplayNameFor(model => model.IdentidadGenero)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Edad)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.IdEtnia)
+                    @Html.DisplayNameFor(model => model.Etnia)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Telefono)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.IdLocalidad)
+                    @Html.DisplayNameFor(model => model.Localidad)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.EsVictimaConflictoA)
@@ -54,34 +54,31 @@
                     @Html.DisplayNameFor(model => model.EsDiscapacitado)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.IdTipoDiscapacidad)
+                    @Html.DisplayNameFor(model => model.TipoDiscapacidad)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.IdTipoVivienda)
+                    @Html.DisplayNameFor(model => model.TipoVivienda)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.IdSeguridadSocial)
+                    @Html.DisplayNameFor(model => model.SeguridadSocial)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.IdNivielEscolaridad)
+                    @Html.DisplayNameFor(model => model.NivielEscolaridad)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.EsJefeHogar)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.IdEstratiSocioEconomico)
+                    @Html.DisplayNameFor(model => model.EstratiSocioEconomico)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.IdLocalidadTrabajo)
+                    @Html.DisplayNameFor(model => model.LocalidadTrabajo)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.IdJornadaTrabajo)
+                    @Html.DisplayNameFor(model => model.JornadaTrabajo)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.IdSubsidios)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.IdUsuario)
+                    @Html.DisplayNameFor(model => model.TipoSubsidio)
                 </th>
                 <th></th>
             </tr>
@@ -95,13 +92,13 @@
                         @Html.DisplayFor(modelItem => item.NumeroDocumento)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.IdTipoDocumento)
+                        @Html.DisplayFor(modelItem => item.TipoDocumento)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Genero.Descripcion)
+                        @Html.DisplayFor(modelItem => item.Genero)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.IdOrientacionSexual)
+                        @Html.DisplayFor(modelItem => item.OrientacionSexual)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Nombres)
@@ -110,19 +107,19 @@
                         @Html.DisplayFor(modelItem => item.Apellidos)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.IdIdentidadGenero)
+                        @Html.DisplayFor(modelItem => item.IdentidadGenero)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Edad)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.IdEtnia)
+                        @Html.DisplayFor(modelItem => item.Etnia)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Telefono)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.IdLocalidad)
+                        @Html.DisplayFor(modelItem => item.Localidad)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.EsVictimaConflictoA)
@@ -131,35 +128,33 @@
                         @Html.DisplayFor(modelItem => item.EsDiscapacitado)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.IdTipoDiscapacidad)
+                        @Html.DisplayFor(modelItem => item.TipoDiscapacidad)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.IdTipoVivienda)
+                        @Html.DisplayFor(modelItem => item.TipoVivienda)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.IdSeguridadSocial)
+                        @Html.DisplayFor(modelItem => item.SeguridadSocial)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.IdNivielEscolaridad)
+                        @Html.DisplayFor(modelItem => item.NivielEscolaridad)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.EsJefeHogar)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.IdEstratiSocioEconomico)
+                        @Html.DisplayFor(modelItem => item.EstratiSocioEconomico)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.IdLocalidadTrabajo)
+                        @Html.DisplayFor(modelItem => item.LocalidadTrabajo)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.IdJornadaTrabajo)
+                        @Html.DisplayFor(modelItem => item.JornadaTrabajo)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.IdSubsidios)
+                        @Html.DisplayFor(modelItem => item.TipoSubsidio)
                     </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.IdUsuario)
-                    </td>
+                   
                     <td>
                         <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                         <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
