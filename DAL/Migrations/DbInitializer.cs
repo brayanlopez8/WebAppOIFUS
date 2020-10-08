@@ -32,6 +32,7 @@ namespace DAL.Migrations
                     SeedTblTipoDeVivienda(context);
                     SeedTblTipoDocumento(context);
                     SeedTblPersona(context);
+                    SeedTblLocalidadVive(context);
 
                     SeedUserAdmin(context);
                 }

@@ -4,14 +4,16 @@ using DAL.DBContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace WebApplicationOIFUS.Migrations
 {
     [DbContext(typeof(MyDBContext))]
-    partial class MyDBContextModelSnapshot : ModelSnapshot
+    [Migration("20201008010058_initialDB")]
+    partial class initialDB
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -248,8 +250,6 @@ namespace WebApplicationOIFUS.Migrations
                     b.Property<bool?>("EsJefeHogar");
 
                     b.Property<bool?>("EsVictimaConflictoA");
-
-                    b.Property<bool>("EstadoPersona");
 
                     b.Property<int?>("IdEstratiSocioEconomico");
 

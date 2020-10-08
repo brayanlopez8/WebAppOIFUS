@@ -1,4 +1,5 @@
 ﻿
+using System.ComponentModel;
 using ENT.ParentEntities;
 
 namespace ENT.Ent
@@ -17,18 +18,27 @@ namespace ENT.Ent
         public int? IdEtnia { get; set; }
         public int? Telefono { get; set; }
         public int? IdLocalidad { get; set; }
+
+        [DefaultValue("false")]
         public bool? EsVictimaConflictoA { get; set; }
+
+        [DefaultValue("false")]
         public bool? EsDiscapacitado { get; set; }
         public int? IdTipoDiscapacidad { get; set; }
         public int? IdTipoVivienda { get; set; }
         public int? IdSeguridadSocial { get; set; }
         public int? IdNivielEscolaridad { get; set; }
+
+        [DefaultValue("false")]
         public bool? EsJefeHogar { get; set; }
         public int? IdEstratiSocioEconomico { get; set; }
         public int? IdLocalidadTrabajo { get; set; }
         public int? IdJornadaTrabajo { get; set; }
         public int? IdSubsidios { get; set; }
         public int? IdUsuario { get; set; }
+
+        [DefaultValue("true")]
+        public bool EstadoPersona { get; set; }
 
         public int ValidarTipoDocumento()
         {
@@ -78,7 +88,7 @@ namespace ENT.Ent
             }
             return this.IdLocalidad.Value;
         }
-        
+
         public int ValidarTipoDiscapacidad()
         {
             if (this.IdTipoDiscapacidad == null)
@@ -111,7 +121,7 @@ namespace ENT.Ent
             }
             return this.IdNivielEscolaridad.Value;
         }
-        
+
         public int ValidarEstratiSocioEconomico()
         {
             if (this.IdEstratiSocioEconomico == null)
@@ -136,7 +146,8 @@ namespace ENT.Ent
             }
             return this.IdJornadaTrabajo.Value;
         }
-        public int ValidarSubsidios(){
+        public int ValidarSubsidios()
+        {
             if (this.IdSubsidios == null)
             {
                 return 0;
