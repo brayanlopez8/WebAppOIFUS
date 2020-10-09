@@ -30,3 +30,13 @@ sudo docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Exadmin7890" -p 1400:1433 --n
 
 Estado de avance de actividades:
 https://docs.google.com/spreadsheets/d/1Qb9kgJCreiVbns8xR4A_Q0eaqCNiY_uk/edit#gid=253374465
+
+
+Datatables componente:
+https://datatables.net/manual/installation
+https://datatables.net/download/
+ejemplos:
+https://datatables.net/examples/index
+
+Ejemplo de botones html para exportar
+https://datatables.net/extensions/buttons/examples/html5/simple.html
