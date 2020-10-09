@@ -18,6 +18,10 @@ namespace DAL.Migrations
                 if (!context.Country.Any())
                 {
                     SeedCountries(context);
+                }
+                if (!context.TblDiscapacidad.Any())
+                {
+                    SeedCountries(context);
                     SeedTblDiscapacidad(context);
                     SeedTblEstratoSocioEconomico(context);
                     SeedTblEtnia(context);
@@ -36,6 +40,69 @@ namespace DAL.Migrations
 
                     SeedUserAdmin(context);
                 }
+                if (!context.TblEstratoSocioEconomico.Any())
+                {
+                    SeedTblEstratoSocioEconomico(context);
+
+                }
+                if (!context.TblEtnia.Any())
+                {
+                    SeedTblEtnia(context);
+                }
+                if (!context.TblGenero.Any())
+                {
+                    SeedTblGenero(context);
+                }
+                if (!context.TblOrientacion.Any())
+                {
+                    SeedTblOrientacion(context);
+                }
+                if (!context.TblIdentidaDeGenero.Any())
+                {
+                    SeedTblIdentidaDeGenero(context);
+                }
+                if (!context.TblJornadaDeTrabajo.Any())
+                {
+                    SeedTblJornadaDeTrabajo(context);
+                }
+                if (!context.TblLocalidadTrabaja.Any())
+                {
+                    SeedTblLocalidadTrabaja(context);
+
+                }
+                if (!context.TblNivelDeEscolaridad.Any())
+                {
+                    SeedTblNivelDeEscolaridad(context);
+                }
+                if (!context.TblSeguridadSocial.Any())
+                {
+                    SeedTblSeguridadSocial(context);
+                }
+                if (!context.TblSubsidio.Any())
+                {
+                    SeedTblSubsidio(context);
+                }
+                if (!context.TblTipoDeVivienda.Any())
+                {
+                    SeedTblTipoDeVivienda(context);
+                }
+                if (!context.TblTipoDocumento.Any())
+                {
+                    SeedTblTipoDocumento(context);
+                }
+                if (!context.tblPersona.Any())
+                {
+                    SeedTblPersona(context);
+                }
+                if (!context.TblLocalidadVive.Any())
+                {
+                    SeedTblLocalidadVive(context);
+                }
+                if (!context.Usuario.Any())
+                {
+                    SeedUserAdmin(context);
+                }
+
             }
             catch (Exception e)
             {
@@ -47,13 +114,13 @@ namespace DAL.Migrations
 
         private static void SeedTblPersona(MyDBContext context)
         {
-            NewPerson(context,"Luz Angelica",1234567);
+            NewPerson(context, "Luz Angelica", 1234567);
             NewPerson(context, "Miguel Angel", 12345678);
             NewPerson(context, "Johanna Andea", 12345679);
             context.SaveChanges();
         }
 
-        private static void NewPerson(MyDBContext context, string name,int numeroDocumento)
+        private static void NewPerson(MyDBContext context, string name, int numeroDocumento)
         {
             context.tblPersona.Add(new ENT.Ent.TblPersona
             {
