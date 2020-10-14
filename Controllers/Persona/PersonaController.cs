@@ -6,6 +6,7 @@ using BLL.Interface;
 using ENT.Ent;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using ViewModel.ViewModels;
 
 namespace WebApplicationOIFUS.Controllers.Persona
 {
@@ -22,5 +23,21 @@ namespace WebApplicationOIFUS.Controllers.Persona
         {
             return View(personaBLL.GetListVM());
         }
+
+        [Authorize]
+        public IActionResult Edit(int id)
+        {
+            return View(personaBLL.GetById(id));
+        }
+
+        [Authorize]
+        [HttpPost]
+        public IActionResult Edit(TblPersona persona)
+        {
+            personaBLL.Put(persona);
+            return RedirectToAction("index");
+        }
+
+
     }
 }
