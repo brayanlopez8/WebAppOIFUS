@@ -1,5 +1,7 @@
 
 using System;
+using System.Collections.Generic;
+using ENT.Ent;
 
 namespace ViewModel.ViewModels
 {
@@ -27,6 +29,8 @@ namespace ViewModel.ViewModels
         public string EstratiSocioEconomico { get; set; }
         public string LocalidadTrabajo { get; set; }
         public string JornadaTrabajo { get; set; }
+
+        public List<TblJornadaDeTrabajo> LstJornadaTrabajo  { get; set;}
         public string TipoSubsidio { get; internal set; }
     }
 

@@ -23,16 +23,23 @@ Add-Migration InitialMigration
 Levantar docker image sql server
 
 Guia 
-https://database.guide/install-sql-server-2019-on-a-mac/
+https://www.londonacademyofit.co.uk/blog/installing-sql-server-on-mac-using-docker
 
-sudo docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Exadmin7890" -p 1400:1433 --name Bart -d mcr.microsoft.com/mssql/server:2019-CTP3.2-ubuntu
+1. docker pull microsoft/mssql-server-linux
+2. docker run -d --name MySQLServer -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Exadmin7890' -p 1433:1433 microsoft/mssql-server-linux
+
+Opcional
+Remover instancia sql server docker:
+sudo docker rm MySQLServer
 
 #Cadena de conexion para MAC
-Server=tcp:localhost,1433;Database=testdb;User Id=sa;Password=Exadmin7890;
+"MyDBContext": "Server=tcp:localhost,1433;Database=testdb;User Id=sa;Password=Exadmin7890;"
 
 Estado de avance de actividades:
 https://docs.google.com/spreadsheets/d/1Qb9kgJCreiVbns8xR4A_Q0eaqCNiY_uk/edit#gid=253374465
 
+Cadena de Conexion Windows
+"MyDBContext": "Server=.\\SQLEXPRESS;Initial Catalog=testdb;Persist Security Info=False;User ID=sa;Password=$Exadmin;MultipleActiveResultSets=False;TrustServerCertificate=False;Connection Timeout=30;"
 
 Datatables componente:
 https://datatables.net/manual/installation

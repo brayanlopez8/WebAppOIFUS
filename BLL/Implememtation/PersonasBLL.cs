@@ -39,6 +39,10 @@ namespace BLL.Implememtation
         {
             return unitOfWork.TblPersonaRepository.FindFirstWhere(c => c.Id == id);
         }
+        public PersonaVM GetPersonaById(int id)
+        {
+            return MappingPeopleVM(unitOfWork.TblPersonaRepository.FindFirstWhere(c => c.Id == id),true);
+        }
 
         public async Task<TblPersona> GetByIdAsync(int id)
         {
@@ -71,35 +75,48 @@ namespace BLL.Implememtation
         List<PersonaVM> IPersonaBLL.GetListVM()
         {
             var person = unitOfWork.TblPersonaRepository.Getall().ToList();
-            return MappingPersonVM(person);
+            return MappingPeoplesVM(person);
         }
 
-        private List<PersonaVM> MappingPersonVM(List<TblPersona> person)
+        private List<PersonaVM> MappingPeoplesVM(List<TblPersona> person)
         {
             List<PersonaVM> personaVMs = new List<PersonaVM>();
             foreach (var item in person)
             {
-                PersonaVM persona = new PersonaVM();
-                persona = iMapper.Map<TblPersona, PersonaVM>(item);
-
-                persona.TipoDocumento = unitOfWork.TblTipoDocumentoRepository.FindById(item.IdTipoDocumento.Value).Descripcion;
-                persona.Genero = unitOfWork.TblGeneroRepository.FindById(item.ValidarGenero()).Descripcion;
-                persona.OrientacionSexual = unitOfWork.TblOrientacionRepository.FindById(item.ValidarTipoDocumento()).Descripcion;
-                persona.IdentidadGenero = unitOfWork.TblIdentidaDeGeneroRepository.FindById(item.ValidarIdentidadGenero()).Descripcion;
-                persona.Etnia = unitOfWork.TblEtniaRepository.FindById(item.ValidarEtnia()).Descripcion;
-                persona.Localidad = unitOfWork.TblLocalidadViveRepository.FindById(item.ValidarLocalidad()).Descripcion;
-                persona.TipoDiscapacidad = unitOfWork.TblDiscapacidadRepository.FindById(item.ValidarTipoDiscapacidad()).Descripcion;
-                persona.TipoVivienda = unitOfWork.TblTipoDeViviendaRepository.FindById(item.ValidarTipoVivienda()).Descripcion;
-                persona.SeguridadSocial = unitOfWork.TblSeguridadSocialRepository.FindById(item.ValidarSeguridadSocial()).Descripcion;
-                persona.NivielEscolaridad = unitOfWork.TblNivelDeEscolaridadRepository.FindById(item.ValidarNivielEscolaridad()).Descripcion;
-                persona.EstratiSocioEconomico = unitOfWork.TblEstratoSocioEconomicoRepository.FindById(item.ValidarEstratiSocioEconomico()).Descripcion;
-                persona.LocalidadTrabajo = unitOfWork.TblLocalidadTrabajaRepository.FindById(item.ValidarLocalidadTrabajo()).Descripcion;
-                persona.JornadaTrabajo = unitOfWork.TblJornadaDeTrabajoRepository.FindById(item.ValidarJornadaTrabajo()).Descripcion;
-                persona.TipoSubsidio = unitOfWork.TblSubsidioRepository.FindById(item.ValidarSubsidios()).Descripcion;
+                PersonaVM persona = MappingPeopleVM(item);
                 personaVMs.Add(persona);
-
             }
             return personaVMs;
+        }
+
+        private PersonaVM MappingPeopleVM(TblPersona item, bool selectListFields = false)
+        {
+            PersonaVM persona = new PersonaVM();
+            persona = iMapper.Map<TblPersona, PersonaVM>(item);
+
+            persona.TipoDocumento = unitOfWork.TblTipoDocumentoRepository.FindById(item.IdTipoDocumento.Value).Descripcion;
+            persona.Genero = unitOfWork.TblGeneroRepository.FindById(item.ValidarGenero()).Descripcion;
+            persona.OrientacionSexual = unitOfWork.TblOrientacionRepository.FindById(item.ValidarTipoDocumento()).Descripcion;
+            persona.IdentidadGenero = unitOfWork.TblIdentidaDeGeneroRepository.FindById(item.ValidarIdentidadGenero()).Descripcion;
+            persona.Etnia = unitOfWork.TblEtniaRepository.FindById(item.ValidarEtnia()).Descripcion;
+            persona.Localidad = unitOfWork.TblLocalidadViveRepository.FindById(item.ValidarLocalidad()).Descripcion;
+            persona.TipoDiscapacidad = unitOfWork.TblDiscapacidadRepository.FindById(item.ValidarTipoDiscapacidad()).Descripcion;
+            persona.TipoVivienda = unitOfWork.TblTipoDeViviendaRepository.FindById(item.ValidarTipoVivienda()).Descripcion;
+            persona.SeguridadSocial = unitOfWork.TblSeguridadSocialRepository.FindById(item.ValidarSeguridadSocial()).Descripcion;
+            persona.NivielEscolaridad = unitOfWork.TblNivelDeEscolaridadRepository.FindById(item.ValidarNivielEscolaridad()).Descripcion;
+            persona.EstratiSocioEconomico = unitOfWork.TblEstratoSocioEconomicoRepository.FindById(item.ValidarEstratiSocioEconomico()).Descripcion;
+            persona.LocalidadTrabajo = unitOfWork.TblLocalidadTrabajaRepository.FindById(item.ValidarLocalidadTrabajo()).Descripcion;
+            persona.JornadaTrabajo = unitOfWork.TblJornadaDeTrabajoRepository.FindById(item.ValidarJornadaTrabajo()).Descripcion;
+            persona.TipoSubsidio = unitOfWork.TblSubsidioRepository.FindById(item.ValidarSubsidios()).Descripcion;
+            if (selectListFields){
+              persona =  MappingPeopleVMSelectList(persona);
+            }
+            return persona;
+        }
+        public PersonaVM MappingPeopleVMSelectList(PersonaVM persona)
+        {
+            persona.LstJornadaTrabajo = unitOfWork.TblJornadaDeTrabajoRepository.Getall().ToList();
+            return persona;
         }
     }
 }

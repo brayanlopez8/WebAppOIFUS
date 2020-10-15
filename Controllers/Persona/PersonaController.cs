@@ -27,7 +27,7 @@ namespace WebApplicationOIFUS.Controllers.Persona
         [Authorize]
         public IActionResult Edit(int id)
         {
-            return View(personaBLL.GetById(id));
+            return View(personaBLL.GetPersonaById(id));
         }
 
         [Authorize]
