@@ -8,148 +8,167 @@
 
 <h4>Personas</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="NumeroDocumento" class="control-label"></label>
-                <input asp-for="NumeroDocumento" class="form-control" />
-                <span asp-validation-for="NumeroDocumento" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="JornadaTrabajo" class="control-label"></label>
-                <select id="cars" name="cars">
-                    @foreach (var item in Model.LstJornadaTrabajo)
-                    {
-                        @Html.Raw(getSelectJornadaT(@item.Id,item))
 
-                    }
-                    </select>
+<form asp-action="Edit">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="row">
 
-                </div>
-                @* <div class="form-group">
-                    <label asp-for="tipo" class="control-label"></label>
-                    <input asp-for="IdTipoDocumento" class="form-control" />
-                    <span asp-validation-for="IdTipoDocumento" class="text-danger"></span>
-                    </div> *@
-                @* <div class="form-group">
-                    <label asp-for="IdGenero" class="control-label"></label>
-                    <input asp-for="IdGenero" class="form-control" />
-                    <span asp-validation-for="IdGenero" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                    <label asp-for="IdOrientacionSexual" class="control-label"></label>
-                    <input asp-for="IdOrientacionSexual" class="form-control" />
-                    <span asp-validation-for="IdOrientacionSexual" class="text-danger"></span>
-                    </div> *@
-                <div class="form-group">
-                    <label asp-for="Nombres" class="control-label"></label>
-                    <input asp-for="Nombres" class="form-control" />
-                    <span asp-validation-for="Nombres" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Apellidos" class="control-label"></label>
-                    <input asp-for="Apellidos" class="form-control" />
-                    <span asp-validation-for="Apellidos" class="text-danger"></span>
-                </div>
-                @* <div class="form-group">
-                    <label asp-for="IdIdentidadGenero" class="control-label"></label>
-                    <input asp-for="IdIdentidadGenero" class="form-control" />
-                    <span asp-validation-for="IdIdentidadGenero" class="text-danger"></span>
-                    </div> *@
-                <div class="form-group">
-                    <label asp-for="Edad" class="control-label"></label>
-                    <input asp-for="Edad" class="form-control" />
-                    <span asp-validation-for="Edad" class="text-danger"></span>
-                </div>
-                @* <div class="form-group">
-                    <label asp-for="IdEtnia" class="control-label"></label>
-                    <input asp-for="IdEtnia" class="form-control" />
-                    <span asp-validation-for="IdEtnia" class="text-danger"></span>
-                    </div> *@
-                <div class="form-group">
-                    <label asp-for="Telefono" class="control-label"></label>
-                    <input asp-for="Telefono" class="form-control" />
-                    <span asp-validation-for="Telefono" class="text-danger"></span>
-                </div>
-                @* <div class="form-group">
-                    <label asp-for="IdLocalidad" class="control-label"></label>
-                    <input asp-for="IdLocalidad" class="form-control" />
-                    <span asp-validation-for="IdLocalidad" class="text-danger"></span>
-                    </div> *@
-                <div class="form-group">
-                    <label asp-for="EsVictimaConflictoA" class="control-label"></label>
-                    <input asp-for="EsVictimaConflictoA" class="form-control" />
-                    <span asp-validation-for="EsVictimaConflictoA" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="EsDiscapacitado" class="control-label"></label>
-                    <input asp-for="EsDiscapacitado" class="form-control" />
-                    <span asp-validation-for="EsDiscapacitado" class="text-danger"></span>
-                </div>
-                @* <div class="form-group">
-                    <label asp-for="IdTipoDiscapacidad" class="control-label"></label>
-                    <input asp-for="IdTipoDiscapacidad" class="form-control" />
-                    <span asp-validation-for="IdTipoDiscapacidad" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                    <label asp-for="IdTipoVivienda" class="control-label"></label>
-                    <input asp-for="IdTipoVivienda" class="form-control" />
-                    <span asp-validation-for="IdTipoVivienda" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                    <label asp-for="IdSeguridadSocial" class="control-label"></label>
-                    <input asp-for="IdSeguridadSocial" class="form-control" />
-                    <span asp-validation-for="IdSeguridadSocial" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                    <label asp-for="IdNivielEscolaridad" class="control-label"></label>
-                    <input asp-for="IdNivielEscolaridad" class="form-control" />
-                    <span asp-validation-for="IdNivielEscolaridad" class="text-danger"></span>
-                    </div> *@
-                <div class="form-group">
-                    <label asp-for="EsJefeHogar" class="control-label"></label>
-                    <input asp-for="EsJefeHogar" class="form-control" />
-                    <span asp-validation-for="EsJefeHogar" class="text-danger"></span>
-                </div>
-                @* <div class="form-group">
-                    <label asp-for="IdEstratiSocioEconomico" class="control-label"></label>
-                    <input asp-for="IdEstratiSocioEconomico" class="form-control" />
-                    <span asp-validation-for="IdEstratiSocioEconomico" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                    <label asp-for="IdLocalidadTrabajo" class="control-label"></label>
-                    <input asp-for="IdLocalidadTrabajo" class="form-control" />
-                    <span asp-validation-for="IdLocalidadTrabajo" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                    <label asp-for="IdJornadaTrabajo" class="control-label"></label>
-                    <input asp-for="IdJornadaTrabajo" class="form-control" />
-                    <span asp-validation-for="IdJornadaTrabajo" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                    <label asp-for="IdSubsidios" class="control-label"></label>
-                    <input asp-for="IdSubsidios" class="form-control" />
-                    <span asp-validation-for="IdSubsidios" class="text-danger"></span>
-                    </div> *@
-                @* <div class="form-group form-check">
-                    <label class="form-check-label">
-                    <input class="form-check-input" asp-for="EstadoPersona" /> @Html.DisplayNameFor(model =>
-                    model.EstadoPersona)
-                    </label>
-                    </div> *@
-                <input type="hidden" asp-for="Id" />
-                <div class="form-group">
-                    <input type="submit" value="Save" class="btn btn-primary" />
-                </div>
-            </form>
+        <div class="col-lg-4 col-md-1 col-sm-1">
+            <label asp-for="Nombres" class="control-label"></label>
+            <input asp-for="Nombres" class="form-control" />
+            <span asp-validation-for="Nombres" class="text-danger"></span>
+        </div>
+        <div class="col-lg-4 col-md-1 col-sm-1">
+            <label asp-for="Apellidos" class="control-label"></label>
+            <input asp-for="Apellidos" class="form-control" />
+            <span asp-validation-for="Apellidos" class="text-danger"></span>
+        </div>
+        <div class="col-lg-4 col-md-1 col-sm-1">
+            <label asp-for="NumeroDocumento" class="control-label"></label>
+            <input asp-for="NumeroDocumento" class="form-control" />
+            <span asp-validation-for="NumeroDocumento" class="text-danger"></span>
         </div>
     </div>
+    <div class="row">
+        <div class="col-lg-4 col-md-1 col-sm-1">
+            <label asp-for="IdTipoDocumento" class="control-label"></label>
+            <select id="LstTipoDocumento" name="LstTipoDocumento" class="form-control">
+                @foreach (var item in Model.LstTipoDocumento)
+                {
+                    @Html.Raw(getSelectTipoDocumento(@item.Id,item))
+                }
+                </select>
+
+            </div>
+            <div class="col-lg-4 col-md-1 col-sm-1">
+                <label asp-for="Edad" class="control-label"></label>
+                <input asp-for="Edad" class="form-control" />
+                <span asp-validation-for="Edad" class="text-danger"></span>
+            </div>
+
+            <div class="col-lg-4 col-md-1 col-sm-1">
+                <label asp-for="Telefono" class="control-label"></label>
+                <input asp-for="Telefono" class="form-control" />
+                <span asp-validation-for="Telefono" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <label asp-for="JornadaTrabajo" class="control-label"></label>
+                <select id="lstJrnTrabajo" name="lstJrnTrabajo">
+                    @foreach (var item in Model.LstJornadaTrabajo)
+                {
+                    @Html.Raw(getSelectJornadaT(@item.Id,item))
+                }
+                </select>
+
+            </div>
+        </div>
+
+        @* <div class="form-group">
+            <label asp-for="IdGenero" class="control-label"></label>
+            <input asp-for="IdGenero" class="form-control" />
+            <span asp-validation-for="IdGenero" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+            <label asp-for="IdOrientacionSexual" class="control-label"></label>
+            <input asp-for="IdOrientacionSexual" class="form-control" />
+            <span asp-validation-for="IdOrientacionSexual" class="text-danger"></span>
+            </div> *@
+
+        @* <div class="form-group">
+            <label asp-for="IdIdentidadGenero" class="control-label"></label>
+            <input asp-for="IdIdentidadGenero" class="form-control" />
+            <span asp-validation-for="IdIdentidadGenero" class="text-danger"></span>
+            </div> *@
+
+        @* <div class="form-group">
+            <label asp-for="IdEtnia" class="control-label"></label>
+            <input asp-for="IdEtnia" class="form-control" />
+            <span asp-validation-for="IdEtnia" class="text-danger"></span>
+            </div> *@
+
+        @* <div class="form-group">
+            <label asp-for="IdLocalidad" class="control-label"></label>
+            <input asp-for="IdLocalidad" class="form-control" />
+            <span asp-validation-for="IdLocalidad" class="text-danger"></span>
+            </div> *@
+        <div class="form-group">
+            <label asp-for="EsVictimaConflictoA" class="control-label"></label>
+            <input asp-for="EsVictimaConflictoA" class="form-control" />
+            <span asp-validation-for="EsVictimaConflictoA" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="EsDiscapacitado" class="control-label"></label>
+            <input asp-for="EsDiscapacitado" class="form-control" />
+            <span asp-validation-for="EsDiscapacitado" class="text-danger"></span>
+        </div>
+        @* <div class="form-group">
+            <label asp-for="IdTipoDiscapacidad" class="control-label"></label>
+            <input asp-for="IdTipoDiscapacidad" class="form-control" />
+            <span asp-validation-for="IdTipoDiscapacidad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+            <label asp-for="IdTipoVivienda" class="control-label"></label>
+            <input asp-for="IdTipoVivienda" class="form-control" />
+            <span asp-validation-for="IdTipoVivienda" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+            <label asp-for="IdSeguridadSocial" class="control-label"></label>
+            <input asp-for="IdSeguridadSocial" class="form-control" />
+            <span asp-validation-for="IdSeguridadSocial" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+            <label asp-for="IdNivielEscolaridad" class="control-label"></label>
+            <input asp-for="IdNivielEscolaridad" class="form-control" />
+            <span asp-validation-for="IdNivielEscolaridad" class="text-danger"></span>
+            </div> *@
+        <div class="form-group">
+            <label asp-for="EsJefeHogar" class="control-label"></label>
+            <input asp-for="EsJefeHogar" class="form-control" />
+            <span asp-validation-for="EsJefeHogar" class="text-danger"></span>
+        </div>
+        @* <div class="form-group">
+            <label asp-for="IdEstratiSocioEconomico" class="control-label"></label>
+            <input asp-for="IdEstratiSocioEconomico" class="form-control" />
+            <span asp-validation-for="IdEstratiSocioEconomico" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+            <label asp-for="IdLocalidadTrabajo" class="control-label"></label>
+            <input asp-for="IdLocalidadTrabajo" class="form-control" />
+            <span asp-validation-for="IdLocalidadTrabajo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+            <label asp-for="IdJornadaTrabajo" class="control-label"></label>
+            <input asp-for="IdJornadaTrabajo" class="form-control" />
+            <span asp-validation-for="IdJornadaTrabajo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+            <label asp-for="IdSubsidios" class="control-label"></label>
+            <input asp-for="IdSubsidios" class="form-control" />
+            <span asp-validation-for="IdSubsidios" class="text-danger"></span>
+            </div> *@
+        @* <div class="form-group form-check">
+            <label class="form-check-label">
+            <input class="form-check-input" asp-for="EstadoPersona" /> @Html.DisplayNameFor(model =>
+            model.EstadoPersona)
+            </label>
+            </div> *@
+        <input type="hidden" asp-for="Id" />
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </div>
+    </form>
+
     @functions {
     public string getSelectJornadaT(int Id, ENT.Ent.TblJornadaDeTrabajo item)
     {
         string validation = Model.IdJornadaTrabajo == Id ? "selected" : "";
+        return $"<option value='{Id}' {validation}> {item.Descripcion} </option>";
+    }
+    public string getSelectTipoDocumento(int Id, ENT.Ent.TblTipoDocumento item)
+    {
+        string validation = Model.IdTipoDocumento == Id ? "selected" : "";
         return $"<option value='{Id}' {validation}> {item.Descripcion} </option>";
     }
 }

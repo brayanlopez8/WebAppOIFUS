@@ -116,6 +116,7 @@ namespace BLL.Implememtation
         public PersonaVM MappingPeopleVMSelectList(PersonaVM persona)
         {
             persona.LstJornadaTrabajo = unitOfWork.TblJornadaDeTrabajoRepository.Getall().ToList();
+            persona.LstTipoDocumento = unitOfWork.TblTipoDocumentoRepository.Getall().ToList();
             return persona;
         }
     }
