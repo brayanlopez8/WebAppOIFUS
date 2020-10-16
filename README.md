@@ -49,3 +49,7 @@ https://datatables.net/examples/index
 
 Ejemplo de botones html para exportar
 https://datatables.net/extensions/buttons/examples/html5/simple.html
+
+Usuario adminitrador defaul
+user: admin
+pass: #MiPass123456

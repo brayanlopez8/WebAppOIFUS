@@ -21,14 +21,11 @@
                 <label asp-for="JornadaTrabajo" class="control-label"></label>
                 <select id="cars" name="cars">
                     @foreach (var item in Model.LstJornadaTrabajo){
-                       
-                        <option value="@item.Id" 
-                         @* @(Model.JornadaTrabajo == item.Id ? "selected", "") *@
-                         @* https://stackoverrun.com/es/q/4829351 *@
-                        >
-                        @item.Descripcion</option>
+                         @Html.Raw(getSelectJornadaT(@item.Id,item))
+                         
                     }
                 </select>
+               
             </div>
             @* <div class="form-group">
                 <label asp-for="tipo" class="control-label"></label>
@@ -148,7 +145,13 @@
         </form>
     </div>
 </div>
-
+@functions {
+                    public string getSelectJornadaT(int Id, ENT.Ent.TblJornadaDeTrabajo item)
+                    {
+                        string validation = Model.IdJornadaTrabajo == Id ? "selected": "";
+                       return $"<option value='{Id}' {validation}> {item.Descripcion} </option>"; 
+                    }
+                }
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
