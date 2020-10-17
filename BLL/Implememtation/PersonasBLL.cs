@@ -41,7 +41,11 @@ namespace BLL.Implememtation
         }
         public PersonaVM GetPersonaById(int id)
         {
-            return MappingPeopleVM(unitOfWork.TblPersonaRepository.FindFirstWhere(c => c.Id == id),true);
+            return MappingPeopleVM(unitOfWork.TblPersonaRepository.FindFirstWhere(c => c.Id == id), true);
+        }
+        public PersonaVM GetNewPersona()
+        {
+            return MappingPeopleVM(true);
         }
 
         public async Task<TblPersona> GetByIdAsync(int id)
@@ -88,7 +92,15 @@ namespace BLL.Implememtation
             }
             return personaVMs;
         }
-
+        private PersonaVM MappingPeopleVM(bool selectListFields = false)
+        {
+            PersonaVM persona = new PersonaVM();
+            if (selectListFields)
+            {
+                persona = MappingPeopleVMSelectList(persona);
+            }
+            return persona;
+        }
         private PersonaVM MappingPeopleVM(TblPersona item, bool selectListFields = false)
         {
             PersonaVM persona = new PersonaVM();
@@ -108,8 +120,9 @@ namespace BLL.Implememtation
             persona.LocalidadTrabajo = unitOfWork.TblLocalidadTrabajaRepository.FindById(item.ValidarLocalidadTrabajo()).Descripcion;
             persona.JornadaTrabajo = unitOfWork.TblJornadaDeTrabajoRepository.FindById(item.ValidarJornadaTrabajo()).Descripcion;
             persona.TipoSubsidio = unitOfWork.TblSubsidioRepository.FindById(item.ValidarSubsidios()).Descripcion;
-            if (selectListFields){
-              persona =  MappingPeopleVMSelectList(persona);
+            if (selectListFields)
+            {
+                persona = MappingPeopleVMSelectList(persona);
             }
             return persona;
         }
@@ -117,6 +130,20 @@ namespace BLL.Implememtation
         {
             persona.LstJornadaTrabajo = unitOfWork.TblJornadaDeTrabajoRepository.Getall().ToList();
             persona.LstTipoDocumento = unitOfWork.TblTipoDocumentoRepository.Getall().ToList();
+            persona.LstGenero = unitOfWork.TblGeneroRepository.Getall().ToList();
+            persona.LstOrientacionSexual = unitOfWork.TblOrientacionRepository.Getall().ToList();
+            persona.LstIdentidadGenero = unitOfWork.TblIdentidaDeGeneroRepository.Getall().ToList();
+            persona.LstJornadaTrabajo = unitOfWork.TblJornadaDeTrabajoRepository.Getall().ToList();
+            persona.LstEtnia = unitOfWork.TblEtniaRepository.Getall().ToList();
+            persona.LstLocalidad = unitOfWork.TblLocalidadViveRepository.Getall().ToList();
+            persona.LstDiscapacidad = unitOfWork.TblDiscapacidadRepository.Getall().ToList();
+            persona.LstTipoVivienda = unitOfWork.TblTipoDeViviendaRepository.Getall().ToList();
+            persona.LstSeguridadSocial = unitOfWork.TblSeguridadSocialRepository.Getall().ToList();
+            persona.LstEstratiSocioEconomico = unitOfWork.TblEstratoSocioEconomicoRepository.Getall().ToList();
+            persona.LstLocalidadTrabajo = unitOfWork.TblLocalidadTrabajaRepository.Getall().ToList();
+            persona.LstJornadaTrabajo = unitOfWork.TblJornadaDeTrabajoRepository.Getall().ToList();
+            persona.LstTipoSubsidio = unitOfWork.TblSubsidioRepository.Getall().ToList();
+            persona.LstNivielEscolaridad = unitOfWork.TblNivelDeEscolaridadRepository.Getall().ToList();
             return persona;
         }
     }

@@ -22,5 +22,6 @@ namespace BLL.Interface
         TblPersona Put(TblPersona person);
 
         PersonaVM GetPersonaById(int id);
+        PersonaVM GetNewPersona();
     }
 }

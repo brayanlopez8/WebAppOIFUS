@@ -35,7 +35,7 @@
             <select id="LstTipoDocumento" name="LstTipoDocumento" class="form-control">
                 @foreach (var item in Model.LstTipoDocumento)
                 {
-                    @Html.Raw(getSelectTipoDocumento(@item.Id,item))
+                    @Html.Raw(getSelect<ENT.Ent.TblTipoDocumento>(@item.Id,item))
                 }
                 </select>
 
@@ -53,46 +53,160 @@
             </div>
         </div>
         <div class="row">
-            <div class="form-group">
-                <label asp-for="JornadaTrabajo" class="control-label"></label>
-                <select id="lstJrnTrabajo" name="lstJrnTrabajo">
-                    @foreach (var item in Model.LstJornadaTrabajo)
+            <div class="col-lg-4 col-md-1 col-sm-1">
+                <label asp-for="Genero" class="control-label"></label>
+                <select id="LstGenero" name="LstGenero" class="form-control">
+                    @foreach (var item in Model.LstGenero)
                 {
-                    @Html.Raw(getSelectJornadaT(@item.Id,item))
+                    @Html.Raw(getSelect<ENT.Ent.TblGenero>(@item.Id,item))
                 }
                 </select>
 
             </div>
+
+            <div class="col-lg-4 col-md-1 col-sm-1">
+                <label asp-for="OrientacionSexual" class="control-label"></label>
+                <select id="lstOrientacionSexual" name="lstOrientacionSexual" class="form-control">
+                    @foreach (var item in Model.LstOrientacionSexual)
+                {
+                    @Html.Raw(getSelect<ENT.Ent.TblOrientacion>(@item.Id,item))
+                }
+                </select>
+            </div>
+
+
+            <div class="col-lg-4 col-md-1 col-sm-1">
+                <label asp-for="IdentidadGenero" class="control-label"></label>
+                <select id="lstIdentidadGenero" name="lstIdentidadGenero" class="form-control">
+                    @foreach (var item in Model.LstIdentidadGenero)
+                {
+                    @Html.Raw(getSelect<ENT.Ent.TblIdentidaDeGenero>(@item.Id,item))
+                }
+                </select>
+            </div>
         </div>
 
-        @* <div class="form-group">
-            <label asp-for="IdGenero" class="control-label"></label>
-            <input asp-for="IdGenero" class="form-control" />
-            <span asp-validation-for="IdGenero" class="text-danger"></span>
+        <div class="row">
+            <div class="col-lg-4 col-md-1 col-sm-1">
+                <label asp-for="JornadaTrabajo" class="control-label"></label>
+                <select id="lstJrnTrabajo" name="lstJrnTrabajo" class="form-control">
+                    @foreach (var item in Model.LstJornadaTrabajo)
+                {
+                    @Html.Raw(getSelect<ENT.Ent.TblJornadaDeTrabajo>(@item.Id,item))
+                }
+                </select>
             </div>
-            <div class="form-group">
-            <label asp-for="IdOrientacionSexual" class="control-label"></label>
-            <input asp-for="IdOrientacionSexual" class="form-control" />
-            <span asp-validation-for="IdOrientacionSexual" class="text-danger"></span>
-            </div> *@
+            <div class="col-lg-4 col-md-1 col-sm-1">
+                <label asp-for="Etnia" class="control-label"></label>
+                <select id="lstEtnia" name="lstEtnia" class="form-control">
+                    @foreach (var item in Model.LstEtnia)
+                {
+                    @Html.Raw(getSelect<ENT.Ent.TblEtnia>(@item.Id,item))
+                }
+                </select>
+            </div>
 
-        @* <div class="form-group">
-            <label asp-for="IdIdentidadGenero" class="control-label"></label>
-            <input asp-for="IdIdentidadGenero" class="form-control" />
-            <span asp-validation-for="IdIdentidadGenero" class="text-danger"></span>
-            </div> *@
+            <div class="col-lg-4 col-md-1 col-sm-1">
+                <label asp-for="Localidad" class="control-label"></label>
+                <select id="lstLocalidad" name="lstLocalidad" class="form-control">
+                    @foreach (var item in Model.LstLocalidad)
+                {
+                    @Html.Raw(getSelect<ENT.Ent.TblLocalidadVive>(@item.Id,item))
+                }
+                </select>
+            </div>
+        </div>
 
-        @* <div class="form-group">
-            <label asp-for="IdEtnia" class="control-label"></label>
-            <input asp-for="IdEtnia" class="form-control" />
-            <span asp-validation-for="IdEtnia" class="text-danger"></span>
-            </div> *@
+        <div class="row">
+            <div class="col-lg-4 col-md-1 col-sm-1">
+                <label asp-for="TipoDiscapacidad" class="control-label"></label>
+                <select id="lstTipoDiscapacidad" name="lstTipoDiscapacidad" class="form-control">
+                    @foreach (var item in Model.LstDiscapacidad)
+                {
+                    @Html.Raw(getSelect<ENT.Ent.TblDiscapacidad>(@item.Id,item))
+                }
+                </select>
+            </div>
+            <div class="col-lg-4 col-md-1 col-sm-1">
+                <label asp-for="TipoVivienda" class="control-label"></label>
+                <select id="lstTipoVivienda" name="lstTipoVivienda" class="form-control">
+                    @foreach (var item in Model.LstTipoVivienda)
+                {
+                    @Html.Raw(getSelect<ENT.Ent.TblTipoDeVivienda>(@item.Id,item))
+                }
+                </select>
+            </div>
+            <div class="col-lg-4 col-md-1 col-sm-1">
+                <label asp-for="SeguridadSocial" class="control-label"></label>
+                <select id="lstSeguridadSocial" name="lstSeguridadSocial" class="form-control">
+                    @foreach (var item in Model.LstSeguridadSocial)
+                {
+                    @Html.Raw(getSelect<ENT.Ent.TblSeguridadSocial>(@item.Id,item))
+                }
+                </select>
+            </div>
+        </div>
 
-        @* <div class="form-group">
-            <label asp-for="IdLocalidad" class="control-label"></label>
-            <input asp-for="IdLocalidad" class="form-control" />
-            <span asp-validation-for="IdLocalidad" class="text-danger"></span>
-            </div> *@
+        <div class="row">
+            <div class="col-lg-4 col-md-1 col-sm-1">
+                <label asp-for="EstratiSocioEconomico" class="control-label"></label>
+                <select id="lstEstratiSocioEconomico" name="lstEstratiSocioEconomico" class="form-control">
+                    @foreach (var item in Model.LstEstratiSocioEconomico)
+                {
+                    @Html.Raw(getSelect<ENT.Ent.TblEstratoSocioEconomico>(@item.Id,item))
+                }
+                </select>
+            </div>
+            <div class="col-lg-4 col-md-1 col-sm-1">
+                <label asp-for="LocalidadTrabajo" class="control-label"></label>
+                <select id="lstLocalidadTrabajo" name="lstLocalidadTrabajo" class="form-control">
+                    @foreach (var item in Model.LstLocalidadTrabajo)
+                {
+                    @Html.Raw(getSelect<ENT.Ent.TblLocalidadTrabaja>(@item.Id,item))
+                }
+                </select>
+            </div>
+            <div class="col-lg-4 col-md-1 col-sm-1">
+                <label asp-for="JornadaTrabajo" class="control-label"></label>
+                <select id="lstJornadaTrabajo" name="lstJornadaTrabajo" class="form-control">
+                    @foreach (var item in Model.LstJornadaTrabajo)
+                {
+                    @Html.Raw(getSelect<ENT.Ent.TblJornadaDeTrabajo>(@item.Id,item))
+                }
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-1 col-sm-1">
+                <label asp-for="NivielEscolaridad" class="control-label"></label>
+                <select id="lstNivielEscolaridad" name="lstNivielEscolaridad" class="form-control">
+                    @foreach (var item in Model.LstNivielEscolaridad)
+                {
+                    @Html.Raw(getSelect<ENT.Ent.TblNivelDeEscolaridad>(@item.Id,item))
+                }
+                </select>
+            </div>
+             
+            <div class="col-lg-4 col-md-1 col-sm-1">
+            <label asp-for="TipoSubsidio" class="control-label"></label>
+            <select id="lstSubsidios" name="lstSubsidios" class="form-control">
+                    @foreach (var item in Model.LstTipoSubsidio)
+                {
+                    @Html.Raw(getSelect<ENT.Ent.TblSubsidio>(@item.Id,item))
+                }
+                </select>
+            </div> 
+         <div class="col-lg-4 col-md-1 col-sm-1">
+            <label class="form-check-label">
+            <input class="form-check-input" asp-for="EstadoPersona" /> @Html.DisplayNameFor(model =>
+            model.EstadoPersona)
+            </label>
+            </div> 
+        </div>
+
+
+
         <div class="form-group">
             <label asp-for="EsVictimaConflictoA" class="control-label"></label>
             <input asp-for="EsVictimaConflictoA" class="form-control" />
@@ -103,75 +217,27 @@
             <input asp-for="EsDiscapacitado" class="form-control" />
             <span asp-validation-for="EsDiscapacitado" class="text-danger"></span>
         </div>
-        @* <div class="form-group">
-            <label asp-for="IdTipoDiscapacidad" class="control-label"></label>
-            <input asp-for="IdTipoDiscapacidad" class="form-control" />
-            <span asp-validation-for="IdTipoDiscapacidad" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-            <label asp-for="IdTipoVivienda" class="control-label"></label>
-            <input asp-for="IdTipoVivienda" class="form-control" />
-            <span asp-validation-for="IdTipoVivienda" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-            <label asp-for="IdSeguridadSocial" class="control-label"></label>
-            <input asp-for="IdSeguridadSocial" class="form-control" />
-            <span asp-validation-for="IdSeguridadSocial" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-            <label asp-for="IdNivielEscolaridad" class="control-label"></label>
-            <input asp-for="IdNivielEscolaridad" class="form-control" />
-            <span asp-validation-for="IdNivielEscolaridad" class="text-danger"></span>
-            </div> *@
+        
         <div class="form-group">
             <label asp-for="EsJefeHogar" class="control-label"></label>
             <input asp-for="EsJefeHogar" class="form-control" />
             <span asp-validation-for="EsJefeHogar" class="text-danger"></span>
         </div>
-        @* <div class="form-group">
-            <label asp-for="IdEstratiSocioEconomico" class="control-label"></label>
-            <input asp-for="IdEstratiSocioEconomico" class="form-control" />
-            <span asp-validation-for="IdEstratiSocioEconomico" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-            <label asp-for="IdLocalidadTrabajo" class="control-label"></label>
-            <input asp-for="IdLocalidadTrabajo" class="form-control" />
-            <span asp-validation-for="IdLocalidadTrabajo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-            <label asp-for="IdJornadaTrabajo" class="control-label"></label>
-            <input asp-for="IdJornadaTrabajo" class="form-control" />
-            <span asp-validation-for="IdJornadaTrabajo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-            <label asp-for="IdSubsidios" class="control-label"></label>
-            <input asp-for="IdSubsidios" class="form-control" />
-            <span asp-validation-for="IdSubsidios" class="text-danger"></span>
-            </div> *@
-        @* <div class="form-group form-check">
-            <label class="form-check-label">
-            <input class="form-check-input" asp-for="EstadoPersona" /> @Html.DisplayNameFor(model =>
-            model.EstadoPersona)
-            </label>
-            </div> *@
+       
         <input type="hidden" asp-for="Id" />
         <div class="form-group">
-            <input type="submit" value="Save" class="btn btn-primary" />
+            <input type="submit" value="Guardar" class="btn btn-primary" />
         </div>
+
     </form>
 
     @functions {
-    public string getSelectJornadaT(int Id, ENT.Ent.TblJornadaDeTrabajo item)
-    {
-        string validation = Model.IdJornadaTrabajo == Id ? "selected" : "";
-        return $"<option value='{Id}' {validation}> {item.Descripcion} </option>";
-    }
-    public string getSelectTipoDocumento(int Id, ENT.Ent.TblTipoDocumento item)
+    public string getSelect<T>(int Id, dynamic item)
     {
         string validation = Model.IdTipoDocumento == Id ? "selected" : "";
         return $"<option value='{Id}' {validation}> {item.Descripcion} </option>";
     }
 }
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Regresar a la lista</a>
 </div>
