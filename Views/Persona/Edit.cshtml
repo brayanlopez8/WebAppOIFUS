@@ -187,25 +187,27 @@
                 }
                 </select>
             </div>
-             
+
             <div class="col-lg-4 col-md-1 col-sm-1">
-            <label asp-for="TipoSubsidio" class="control-label"></label>
-            <select id="lstSubsidios" name="lstSubsidios" class="form-control">
+                <label asp-for="TipoSubsidio" class="control-label"></label>
+                <select id="lstSubsidios" name="lstSubsidios" class="form-control">
                     @foreach (var item in Model.LstTipoSubsidio)
                 {
                     @Html.Raw(getSelect<ENT.Ent.TblSubsidio>(@item.Id,item))
                 }
                 </select>
-            </div> 
-         <div class="col-lg-4 col-md-1 col-sm-1">
-            <label class="form-check-label">
-            <input class="form-check-input" asp-for="EstadoPersona" /> @Html.DisplayNameFor(model =>
-            model.EstadoPersona)
-            </label>
-            </div> 
+            </div>
+            <div class="col-lg-4 col-md-1 col-sm-1">
+                <label asp-for="EstadoPersona" class="control-label"></label>
+                @Html.Raw(selectBool("", Model.EstadoPersona))
+
+            </div>
         </div>
 
-
+        @* <label class="container">@Html.DisplayNameFor(model =>model.EstadoPersona)
+            <input type="checkbox" asp-for="EstadoPersona" checked="checked">
+            <span class="checkmark"></span>
+        </label> *@
 
         <div class="form-group">
             <label asp-for="EsVictimaConflictoA" class="control-label"></label>
@@ -217,13 +219,13 @@
             <input asp-for="EsDiscapacitado" class="form-control" />
             <span asp-validation-for="EsDiscapacitado" class="text-danger"></span>
         </div>
-        
+
         <div class="form-group">
             <label asp-for="EsJefeHogar" class="control-label"></label>
             <input asp-for="EsJefeHogar" class="form-control" />
             <span asp-validation-for="EsJefeHogar" class="text-danger"></span>
         </div>
-       
+
         <input type="hidden" asp-for="Id" />
         <div class="form-group">
             <input type="submit" value="Guardar" class="btn btn-primary" />
@@ -236,6 +238,25 @@
     {
         string validation = Model.IdTipoDocumento == Id ? "selected" : "";
         return $"<option value='{Id}' {validation}> {item.Descripcion} </option>";
+    }
+    public string selectBool(string IdControl, dynamic values)
+    {
+        string strHtml = $"<select id='{IdControl}' name='{IdControl}' class='form-control'>";
+        for (int i = 0; i <= 1; i++)
+        {
+            if (i == 0)
+            {
+                string validation = 0 == Convert.ToInt32(values) ? "selected" : "";
+                strHtml += $"<option value='0' {validation}> No </option>";
+            }
+            else
+            {
+                string validation = 1 == Convert.ToInt32(values) ? "selected" : "";
+                strHtml += $"<option value='1' {validation}> Si </option>";
+            }
+        }
+        strHtml += "</select>";
+        return strHtml;
     }
 }
 <div>

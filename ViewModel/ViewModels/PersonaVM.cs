@@ -112,7 +112,7 @@ namespace ViewModel.ViewModels
         public int IdTipoSubsidio { get; internal set; }
         public List<TblSubsidio> LstTipoSubsidio { get; set; }
 
-        [Display(Name = "EstadoPersona: ")]
+        [Display(Name = "Estado Persona: ")]
         public bool EstadoPersona { get; set; }
     }
 
