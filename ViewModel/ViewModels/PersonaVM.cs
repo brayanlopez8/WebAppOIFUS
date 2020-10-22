@@ -61,10 +61,10 @@ namespace ViewModel.ViewModels
         public List<TblLocalidadVive> LstLocalidad { get; set; }
 
         [Display(Name = "Es Victima de Conflicto Armado: ")]
-        public string EsVictimaConflictoA { get; set; }
+        public bool EsVictimaConflictoA { get; set; }
 
         [Display(Name = "Es Discapacitado: ")]
-        public string EsDiscapacitado { get; set; }
+        public bool EsDiscapacitado { get; set; }
 
         [Display(Name = "Tipo de Discapacidad: ")]
         public string TipoDiscapacidad { get; set; }
@@ -88,7 +88,7 @@ namespace ViewModel.ViewModels
         public List<TblNivelDeEscolaridad> LstNivielEscolaridad { get; set; }
 
         [Display(Name = "Es JefeHogar: ")]
-        public string EsJefeHogar { get; set; }
+        public bool EsJefeHogar { get; set; }
 
         [Display(Name = "Estrato SocioEconomico: ")]
         public string EstratiSocioEconomico { get; set; }

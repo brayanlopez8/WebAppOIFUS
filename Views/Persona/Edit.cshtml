@@ -30,7 +30,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-4 col-md-1 col-sm-1">
+        <div class="col-lg-4 col-md-1 col-sm-1 col-xl-4">
             <label asp-for="IdTipoDocumento" class="control-label"></label>
             <select id="LstTipoDocumento" name="LstTipoDocumento" class="form-control">
                 @foreach (var item in Model.LstTipoDocumento)
@@ -87,7 +87,7 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-4 col-md-1 col-sm-1">
+            <div class="col-lg-4 col-md-1 col-sm-1 col-xl-4">
                 <label asp-for="JornadaTrabajo" class="control-label"></label>
                 <select id="lstJrnTrabajo" name="lstJrnTrabajo" class="form-control">
                     @foreach (var item in Model.LstJornadaTrabajo)
@@ -96,7 +96,7 @@
                 }
                 </select>
             </div>
-            <div class="col-lg-4 col-md-1 col-sm-1">
+            <div class="col-lg-4 col-md-1 col-sm-1 col-xl-4">
                 <label asp-for="Etnia" class="control-label"></label>
                 <select id="lstEtnia" name="lstEtnia" class="form-control">
                     @foreach (var item in Model.LstEtnia)
@@ -106,7 +106,7 @@
                 </select>
             </div>
 
-            <div class="col-lg-4 col-md-1 col-sm-1">
+            <div class="col-lg-4 col-md-1 col-sm-1 col-xl-4">
                 <label asp-for="Localidad" class="control-label"></label>
                 <select id="lstLocalidad" name="lstLocalidad" class="form-control">
                     @foreach (var item in Model.LstLocalidad)
@@ -118,7 +118,7 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-4 col-md-1 col-sm-1">
+            <div class="col-lg-4 col-md-1 col-sm-1 col-xl-4">
                 <label asp-for="TipoDiscapacidad" class="control-label"></label>
                 <select id="lstTipoDiscapacidad" name="lstTipoDiscapacidad" class="form-control">
                     @foreach (var item in Model.LstDiscapacidad)
@@ -127,7 +127,7 @@
                 }
                 </select>
             </div>
-            <div class="col-lg-4 col-md-1 col-sm-1">
+            <div class="col-lg-4 col-md-1 col-sm-1 col-xl-4">
                 <label asp-for="TipoVivienda" class="control-label"></label>
                 <select id="lstTipoVivienda" name="lstTipoVivienda" class="form-control">
                     @foreach (var item in Model.LstTipoVivienda)
@@ -136,7 +136,7 @@
                 }
                 </select>
             </div>
-            <div class="col-lg-4 col-md-1 col-sm-1">
+            <div class="col-lg-4 col-md-1 col-sm-1 col-xl-4">
                 <label asp-for="SeguridadSocial" class="control-label"></label>
                 <select id="lstSeguridadSocial" name="lstSeguridadSocial" class="form-control">
                     @foreach (var item in Model.LstSeguridadSocial)
@@ -148,7 +148,7 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-4 col-md-1 col-sm-1">
+            <div class="col-lg-4 col-md-1 col-sm-1 col-xl-4">
                 <label asp-for="EstratiSocioEconomico" class="control-label"></label>
                 <select id="lstEstratiSocioEconomico" name="lstEstratiSocioEconomico" class="form-control">
                     @foreach (var item in Model.LstEstratiSocioEconomico)
@@ -157,7 +157,7 @@
                 }
                 </select>
             </div>
-            <div class="col-lg-4 col-md-1 col-sm-1">
+            <div class="col-lg-4 col-md-1 col-sm-1 col-xl-4">
                 <label asp-for="LocalidadTrabajo" class="control-label"></label>
                 <select id="lstLocalidadTrabajo" name="lstLocalidadTrabajo" class="form-control">
                     @foreach (var item in Model.LstLocalidadTrabajo)
@@ -178,7 +178,7 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-4 col-md-1 col-sm-1">
+            <div class="col-lg-4 col-md-1 col-sm-1 col-xl-4">
                 <label asp-for="NivielEscolaridad" class="control-label"></label>
                 <select id="lstNivielEscolaridad" name="lstNivielEscolaridad" class="form-control">
                     @foreach (var item in Model.LstNivielEscolaridad)
@@ -188,7 +188,7 @@
                 </select>
             </div>
 
-            <div class="col-lg-4 col-md-1 col-sm-1">
+            <div class="col-lg-4 col-md-1 col-sm-1 col-xl-4">
                 <label asp-for="TipoSubsidio" class="control-label"></label>
                 <select id="lstSubsidios" name="lstSubsidios" class="form-control">
                     @foreach (var item in Model.LstTipoSubsidio)
@@ -197,66 +197,77 @@
                 }
                 </select>
             </div>
-            <div class="col-lg-4 col-md-1 col-sm-1">
+            <div class="col-lg-4 col-md-1 col-sm-1 col-xl-4">
                 <label asp-for="EstadoPersona" class="control-label"></label>
-                @Html.Raw(selectBool("", Model.EstadoPersona))
+                @{
+                string[] status = { "Inactivo", "Activo" };}
+            @Html.Raw(selectBool("", Model.EstadoPersona,status))
 
-            </div>
         </div>
+    </div>
 
-        @* <label class="container">@Html.DisplayNameFor(model =>model.EstadoPersona)
-            <input type="checkbox" asp-for="EstadoPersona" checked="checked">
-            <span class="checkmark"></span>
-        </label> *@
-
-        <div class="form-group">
+    <div class="row">
+        <div class="col-lg-4 col-md-1 col-sm-1 col-xl-4">
             <label asp-for="EsVictimaConflictoA" class="control-label"></label>
-            <input asp-for="EsVictimaConflictoA" class="form-control" />
-            <span asp-validation-for="EsVictimaConflictoA" class="text-danger"></span>
+             
+            @Html.Raw(selectBool("", Model.EsVictimaConflictoA))
         </div>
-        <div class="form-group">
+        <div class="col-lg-4 col-md-1 col-sm-1 col-xl-4">
             <label asp-for="EsDiscapacitado" class="control-label"></label>
-            <input asp-for="EsDiscapacitado" class="form-control" />
-            <span asp-validation-for="EsDiscapacitado" class="text-danger"></span>
+            @Html.Raw(selectBool("", Model.EsDiscapacitado))
         </div>
 
-        <div class="form-group">
+        <div class="col-lg-4 col-md-1 col-sm-1 col-xl-4">
             <label asp-for="EsJefeHogar" class="control-label"></label>
-            <input asp-for="EsJefeHogar" class="form-control" />
-            <span asp-validation-for="EsJefeHogar" class="text-danger"></span>
+           @Html.Raw(selectBool("", Model.EsJefeHogar))
         </div>
+    </div>
 
-        <input type="hidden" asp-for="Id" />
-        <div class="form-group">
-            <input type="submit" value="Guardar" class="btn btn-primary" />
-        </div>
 
-    </form>
+    <input type="hidden" asp-for="Id" />
+    <br>
+    <div class="form-group">
+        <input type="submit" value="Guardar" class="btn btn-primary" />
+    </div>
 
-    @functions {
+</form>
+
+@functions {
     public string getSelect<T>(int Id, dynamic item)
     {
         string validation = Model.IdTipoDocumento == Id ? "selected" : "";
         return $"<option value='{Id}' {validation}> {item.Descripcion} </option>";
     }
-    public string selectBool(string IdControl, dynamic values)
+    public string selectBool(string IdControl, dynamic values, string[] Descriptions = null)
     {
         string strHtml = $"<select id='{IdControl}' name='{IdControl}' class='form-control'>";
+        string description;
         for (int i = 0; i <= 1; i++)
         {
+
             if (i == 0)
             {
                 string validation = 0 == Convert.ToInt32(values) ? "selected" : "";
-                strHtml += $"<option value='0' {validation}> No </option>";
+                description = validateDescription(Descriptions, "No", i);
+                strHtml += $"<option value='0' {validation}> {description} </option>";
             }
             else
             {
                 string validation = 1 == Convert.ToInt32(values) ? "selected" : "";
-                strHtml += $"<option value='1' {validation}> Si </option>";
+                description = validateDescription(Descriptions, "Si", i);
+                strHtml += $"<option value='1' {validation}>{description} </option>";
             }
         }
         strHtml += "</select>";
         return strHtml;
+    }
+    public string validateDescription(string[] Descriptions, string value, int i)
+    {
+        if (Descriptions != null)
+        {
+            return Descriptions[i] == null ? value : Descriptions[i];
+        }
+        return value;
     }
 }
 <div>
