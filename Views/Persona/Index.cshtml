@@ -2,7 +2,16 @@
 
 @{
     ViewData["Title"] = "Index";
+    if (Context.User.Identity.IsAuthenticated)
+    {
+        Layout = "_LayoutAdm";
+    }
+    else
+    {
+        Layout = "_Layout";
+    }
 }
+
 <link href="~/lib/DataTables/css/jquery.dataTables.min.css" rel="stylesheet" />
 @*<link href="~/lib/DataTables/css/jquery.dataTables.css" rel="stylesheet" />*@
 @*<link href="~/Content/buttons.dataTables.min.css" rel="stylesheet" />*@
@@ -160,8 +169,8 @@
                     </td>
 
                     <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |                         
-<a asp-action="Delete" asp-route-id="@item.Id">Inactivar</a>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Inactivar</a>
                     </td>
                 </tr>
             }
@@ -179,14 +188,14 @@
 <script src="~/lib/DataTables/js/buttons.html5.min.js"></script>
 <script>
     $(document).ready(function () {
-        $('#tblPersonas').DataTable({
-            dom: 'Bfrtip',
-            buttons: [
-                'copyHtml5',
-                'excelHtml5',
-                'csvHtml5',
-                'pdfHtml5'
-            ]
-        });
+    $('#tblPersonas').DataTable({
+    dom: 'Bfrtip',
+    buttons: [
+    'copyHtml5',
+    'excelHtml5',
+    'csvHtml5',
+    'pdfHtml5'
+    ]
+    });
     });
 </script>

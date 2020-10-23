@@ -32,5 +32,11 @@ namespace WebApplicationOIFUS.Controllers.Login
             ViewData.Add("Error", "Fallo de autenticación");
             return View();
         }
+
+        public IActionResult ClosedSession(){
+            UserManager  userManager = new UserManager(usuarioBll);
+            userManager.SignOut(this.HttpContext);
+            return RedirectToAction("Index","Login");
+        }
     }
 }
