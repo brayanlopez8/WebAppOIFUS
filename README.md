@@ -26,7 +26,10 @@ Guia
 https://www.londonacademyofit.co.uk/blog/installing-sql-server-on-mac-using-docker
 
 1. docker pull microsoft/mssql-server-linux
+En Mac
 2. docker run -d --name MySQLServer -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Exadmin7890' -p 1433:1433 microsoft/mssql-server-linux
+En windows
+docker run -d --name MySQLServer -e 'SA_PASSWORD=Exadmin7890' -p 1433:1433 microsoft/mssql-server-linux
 
 Opcional
 Remover instancia sql server docker:
