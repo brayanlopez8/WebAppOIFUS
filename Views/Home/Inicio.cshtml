@@ -1,4 +1,12 @@
 @{
     ViewData["Title"] = "Inicio";
+      if (Context.User.Identity.IsAuthenticated)
+    {
+        Layout = "_LayoutAdm";
+    }
+    else
+    {
+        Layout = "_Layout";
+    }
 }
 

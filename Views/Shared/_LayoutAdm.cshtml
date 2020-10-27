@@ -54,10 +54,10 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home"
                             asp-action="Privacy">Terminos y condiciones</a>
                         </li>
-                        <li class="nav-item">
+                        @* <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Login"
                             asp-action="ClosedSession">Cerrar sesion</a>
-                        </li>
+                        </li> *@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Persona"
                             asp-action="Index">Administración de vendedores</a>
@@ -68,6 +68,12 @@
                         </li>
 
 
+                    </ul>
+                </div>
+                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a asp-controller="Login" asp-action="ClosedSession">Cerrar sesion<span
+                                class="sr-only">(current)</span></a></li>
                     </ul>
                 </div>
             </div>

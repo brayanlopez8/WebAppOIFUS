@@ -1,6 +1,14 @@
 ﻿
 @{
     ViewData["Title"] = "Search";
+      if (Context.User.Identity.IsAuthenticated)
+    {
+        Layout = "_LayoutAdm";
+    }
+    else
+    {
+        Layout = "_Layout";
+    }
 }
 
 <h1>Busquedas de certificaciones.</h1>

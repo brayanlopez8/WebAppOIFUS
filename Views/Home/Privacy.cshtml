@@ -1,5 +1,13 @@
 ﻿@{
     ViewData["Title"] = "Terminos y condiciones";
+      if (Context.User.Identity.IsAuthenticated)
+    {
+        Layout = "_LayoutAdm";
+    }
+    else
+    {
+        Layout = "_Layout";
+    }
 }
 <h1>@ViewData["Title"]</h1>
 

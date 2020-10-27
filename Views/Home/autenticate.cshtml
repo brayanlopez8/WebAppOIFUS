@@ -1,6 +1,14 @@
 ﻿
 @{
     ViewData["Title"] = "autenticate";
+      if (Context.User.Identity.IsAuthenticated)
+    {
+        Layout = "_LayoutAdm";
+    }
+    else
+    {
+        Layout = "_Layout";
+    }
 }
 
 <h1>autenticate</h1>
