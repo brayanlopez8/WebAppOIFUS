@@ -38,6 +38,12 @@ namespace WebApplicationOIFUS.Controllers.Persona
             return RedirectToAction("index");
         }
 
+        [Authorize]
+        public IActionResult Create()
+        {
+            return View(personaBLL.GetNewPersona());
+        }
+
 
     }
 }
