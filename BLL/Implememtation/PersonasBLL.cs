@@ -146,5 +146,19 @@ namespace BLL.Implememtation
             persona.LstNivielEscolaridad = unitOfWork.TblNivelDeEscolaridadRepository.Getall().ToList();
             return persona;
         }
+
+        public TblPersona Create(PersonaVM person)
+        {
+            TblPersona persona = new TblPersona();
+            persona = iMapper.Map<PersonaVM,TblPersona>(person);
+           return Create(persona);
+        }
+
+        public TblPersona Put(PersonaVM person)
+        {
+             TblPersona persona = new TblPersona();
+            persona = iMapper.Map<PersonaVM,TblPersona>(person);
+            return Put(person);
+        }
     }
 }

@@ -32,9 +32,9 @@ namespace WebApplicationOIFUS.Controllers.Persona
 
         [Authorize]
         [HttpPost]
-        public IActionResult Edit(TblPersona persona)
+        public IActionResult Edit(PersonaVM model)
         {
-            personaBLL.Put(persona);
+            personaBLL.Put(model);
             return RedirectToAction("index");
         }
 
@@ -42,6 +42,14 @@ namespace WebApplicationOIFUS.Controllers.Persona
         public IActionResult Create()
         {
             return View(personaBLL.GetNewPersona());
+        }
+
+         [Authorize]
+         [HttpPost]
+        public IActionResult Create(PersonaVM model)
+        {
+            personaBLL.Create(model);
+            return RedirectToAction("index");
         }
 
 

@@ -11,6 +11,7 @@ namespace ViewModel.ViewModels
         public int Id { get; set; }
 
         [Display(Name = "Número Documento: ")]
+        [Required(ErrorMessage="El número de documento es requerido")]
         public string NumeroDocumento { get; set; }
 
         [Display(Name = "Tipo Documento: ")]

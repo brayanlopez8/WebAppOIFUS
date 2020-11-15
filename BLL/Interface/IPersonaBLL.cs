@@ -17,9 +17,11 @@ namespace BLL.Interface
         TblPersona GetById(int id);
         Task<TblPersona> GetByIdAsync(int id);
         TblPersona Create(TblPersona person);
+        TblPersona Create(PersonaVM person);
         Task<TblPersona> CreateAsync(TblPersona person);
         Task<TblPersona> PutAsync(TblPersona person);
         TblPersona Put(TblPersona person);
+        TblPersona Put(PersonaVM person);
 
         PersonaVM GetPersonaById(int id);
         PersonaVM GetNewPersona();
