@@ -34,6 +34,7 @@ namespace ViewModel.ViewModels
         public List<TblOrientacion> LstOrientacionSexual { get; set; }
 
         [Display(Name = "Nombres: ")]
+         [Required(ErrorMessage="El campo nombres es requerido")]
         public string Nombres { get; set; }
 
         [Display(Name = "Apellidos: ")]
