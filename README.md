@@ -22,7 +22,8 @@ Add-Migration InitialMigration
 
 Levantar docker image sql server
 
-Guia 
+Guia
+0. Tener instalado Docker  
 https://www.londonacademyofit.co.uk/blog/installing-sql-server-on-mac-using-docker
 
 1. docker pull microsoft/mssql-server-linux
