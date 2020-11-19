@@ -22,6 +22,9 @@ Add-Migration InitialMigration
 
 Levantar docker image sql server
 
+https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli
+
+
 Guia
 0. Tener instalado Docker  
 https://www.londonacademyofit.co.uk/blog/installing-sql-server-on-mac-using-docker

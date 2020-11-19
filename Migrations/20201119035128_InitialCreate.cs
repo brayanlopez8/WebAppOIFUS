@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WebApplicationOIFUS.Migrations
 {
-    public partial class initialDB : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -296,6 +296,7 @@ namespace WebApplicationOIFUS.Migrations
                     IdJornadaTrabajo = table.Column<int>(nullable: true),
                     IdSubsidios = table.Column<int>(nullable: true),
                     IdUsuario = table.Column<int>(nullable: true),
+                    EstadoPersona = table.Column<bool>(nullable: false),
                     TblDiscapacidadId = table.Column<int>(nullable: true),
                     TblEstratoSocioEconomicoId = table.Column<int>(nullable: true),
                     TblEtniaId = table.Column<int>(nullable: true),

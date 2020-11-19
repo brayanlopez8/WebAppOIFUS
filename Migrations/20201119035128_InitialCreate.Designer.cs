@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace WebApplicationOIFUS.Migrations
 {
     [DbContext(typeof(MyDBContext))]
-    [Migration("20201008010058_initialDB")]
-    partial class initialDB
+    [Migration("20201119035128_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -250,6 +250,8 @@ namespace WebApplicationOIFUS.Migrations
                     b.Property<bool?>("EsJefeHogar");
 
                     b.Property<bool?>("EsVictimaConflictoA");
+
+                    b.Property<bool>("EstadoPersona");
 
                     b.Property<int?>("IdEstratiSocioEconomico");
 

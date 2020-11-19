@@ -21,29 +21,11 @@ namespace DAL.Migrations
                 }
                 if (!context.TblDiscapacidad.Any())
                 {
-                    SeedCountries(context);
                     SeedTblDiscapacidad(context);
-                    SeedTblEstratoSocioEconomico(context);
-                    SeedTblEtnia(context);
-                    SeedTblGenero(context);
-                    SeedTblOrientacion(context);
-                    SeedTblIdentidaDeGenero(context);
-                    SeedTblJornadaDeTrabajo(context);
-                    SeedTblLocalidadTrabaja(context);
-                    SeedTblNivelDeEscolaridad(context);
-                    SeedTblSeguridadSocial(context);
-                    SeedTblSubsidio(context);
-                    SeedTblTipoDeVivienda(context);
-                    SeedTblTipoDocumento(context);
-                    SeedTblPersona(context);
-                    SeedTblLocalidadVive(context);
-
-                    SeedUserAdmin(context);
                 }
                 if (!context.TblEstratoSocioEconomico.Any())
                 {
                     SeedTblEstratoSocioEconomico(context);
-
                 }
                 if (!context.TblEtnia.Any())
                 {
@@ -68,7 +50,6 @@ namespace DAL.Migrations
                 if (!context.TblLocalidadTrabaja.Any())
                 {
                     SeedTblLocalidadTrabaja(context);
-
                 }
                 if (!context.TblNivelDeEscolaridad.Any())
                 {
@@ -101,6 +82,10 @@ namespace DAL.Migrations
                 if (!context.Usuario.Any())
                 {
                     SeedUserAdmin(context);
+                }
+                if (!context.Notificaciones.Any())
+                {
+                    SeedNotificaciones(context);
                 }
 
             }
@@ -605,6 +590,18 @@ namespace DAL.Migrations
             context.SaveChanges();
         }
 
-        //TODO: Hacer los datos semilla de las tablas Tipo
+        public static void SeedNotificaciones(MyDBContext context)
+        {
+            context.Notificaciones.AddRange(
+                new List<ENT.Ent.Notificaciones>{
+                    new ENT.Ent.Notificaciones{Notificacion ="texto 1",FechaNotificaciones = DateTime.Now,Imagen = "tinyurl.com/y545m3gh" },
+                    new ENT.Ent.Notificaciones{Notificacion ="texto 2",FechaNotificaciones = DateTime.Now,Imagen = "tinyurl.com/y545m3gh" },
+                    new ENT.Ent.Notificaciones{Notificacion ="texto 3",FechaNotificaciones = DateTime.Now,Imagen = "tinyurl.com/y545m3gh" }
+                }
+            );
+            context.SaveChanges();
+
+        }
+
     }
 }
