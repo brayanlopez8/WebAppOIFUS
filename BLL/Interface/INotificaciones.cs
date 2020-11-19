@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace BLL.Interface
 {
-    public interface INotificaciones
+    public interface INotificacionesBLL
     {
-        List<Notificaciones> GetTopTen();
+        List<Notificaciones> GetTopThree();
+
+        List<Notificaciones> GetAll();
 
         Notificaciones NewNotification();
 

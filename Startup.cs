@@ -47,7 +47,7 @@ namespace WebApplicationOIFUS
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddTransient<IPersonBLL, PersonBLL>();
             services.AddTransient<ICountryBLL, CountryBLL>();
-            services.AddTransient<INotificaciones, NotificacionesBLL>();
+            services.AddTransient<INotificacionesBLL, NotificacionesBLL>();
             services.AddTransient<IPersonaBLL, PersonasBLL>();
             services.AddTransient(typeof(ITablaTipoBLL<>), typeof(TablaTipoBLL<>));
             services.AddTransient<IUsuarioBLL, UsuarioBLL>();

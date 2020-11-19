@@ -1,0 +1,91 @@
+@model IEnumerable<ENT.Ent.Notificaciones>
+@{
+    ViewData["Title"] = "Index";
+}
+@{
+    ViewData["Title"] = "Index";
+    if (Context.User.Identity.IsAuthenticated)
+    {
+        Layout = "_LayoutAdm";
+    }
+    else
+    {
+        Layout = "_Layout";
+    }
+}
+
+<link href="~/lib/DataTables/css/jquery.dataTables.min.css" rel="stylesheet" />
+@*<link href="~/lib/DataTables/css/jquery.dataTables.css" rel="stylesheet" />*@
+@*<link href="~/Content/buttons.dataTables.min.css" rel="stylesheet" />*@
+<link href="~/lib/DataTables/css/buttons.dataTables.min.css" rel="stylesheet" />
+
+
+<h1>administración de noticias</h1>
+
+<p>
+    <a asp-action="Create">Crear Nuevo registro</a>
+</p>
+<div class="table-responsive">
+    <table id="tblPersonas" class="table table-striped table-bordered table-condensed">
+        <thead>
+            <tr>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.FechaNotificaciones)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Notificacion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Imagen)
+                </th>
+                
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FechaNotificaciones)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Notificacion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Imagen)
+                    </td>
+                    
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Inactivar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+@*<script src="~/lib/jquery/jquery-3.5.1.js"></script>*@
+<script src="~/lib/DataTables/js/jquery.dataTables.min.js"></script>
+<script src="~/lib/DataTables/js/dataTables.buttons.min.js"></script>
+<script src="~/lib/DataTables/js/jszip.min.js"></script>
+<script src="~/lib/DataTables/js/pdfmake.min.js"></script>
+<script src="~/lib/DataTables/js/vfs_fonts.js"></script>
+<script src="~/lib/DataTables/js/buttons.html5.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#tblPersonas').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                'copyHtml5',
+                'excelHtml5',
+                'csvHtml5',
+                'pdfHtml5'
+            ]
+        });
+    });
+</script>

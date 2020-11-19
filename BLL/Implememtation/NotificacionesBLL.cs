@@ -1,5 +1,7 @@
 ﻿using BLL.Interface;
+using DAL.UnitOfWork;
 using ENT.Ent;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +9,16 @@ using System.Threading.Tasks;
 
 namespace BLL.Implememtation
 {
-    public class NotificacionesBLL : INotificaciones
+    public class NotificacionesBLL : INotificacionesBLL
     {
+        private UnitOfWork unitOfWork;
+        private IConfiguration configuration;
+        public NotificacionesBLL(IConfiguration configuration)
+        {
+            this.configuration = configuration;
+            this.unitOfWork = new UnitOfWork(configuration);
+            
+        }
         public void DeleteNotification()
         {
             //this.repository = repository;
@@ -21,9 +31,13 @@ namespace BLL.Implememtation
             throw new NotImplementedException();
         }
 
-        public List<Notificaciones> GetTopTen()
+        public List<Notificaciones> GetTopThree()
         {
-            throw new NotImplementedException();
+           return unitOfWork.NotificacionesRepository.Getall().Take(3).OrderBy(c=> c.DateCreated).ToList();
+        }
+        public List<Notificaciones> GetAll()
+        {
+           return unitOfWork.NotificacionesRepository.Getall().ToList();
         }
 
         public Notificaciones NewNotification()
