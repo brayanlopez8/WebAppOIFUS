@@ -41,7 +41,7 @@
     <div class="row">
         <div class="col-lg-4 col-md-1 col-sm-1 col-xl-4">
             <label asp-for="IdTipoDocumento" class="control-label"></label>
-            <select id="LstTipoDocumento" name="LstTipoDocumento" class="form-control">
+            <select id="IdTipoDocumento" name="IdTipoDocumento" class="form-control">
                 @foreach (var item in Model.LstTipoDocumento)
                 {
                     @Html.Raw(getSelect<ENT.Ent.TblTipoDocumento>(@item.Id,item))
@@ -51,20 +51,20 @@
             </div>
             <div class="col-lg-4 col-md-1 col-sm-1">
                 <label asp-for="Edad" class="control-label"></label>
-                <input asp-for="Edad" class="form-control" type="number" />
+                <input asp-for="Edad" class="form-control" />
                 <span asp-validation-for="Edad" class="text-danger"></span>
             </div>
 
             <div class="col-lg-4 col-md-1 col-sm-1">
                 <label asp-for="Telefono" class="control-label"></label>
-                <input asp-for="Telefono" class="form-control" type="number"/>
+                <input asp-for="Telefono" class="form-control" />
                 <span asp-validation-for="Telefono" class="text-danger"></span>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-4 col-md-1 col-sm-1">
                 <label asp-for="Genero" class="control-label"></label>
-                <select id="LstGenero" name="LstGenero" class="form-control" asp-for="IdGenero">
+                <select id="Genero" name="Genero" class="form-control">
                     @foreach (var item in Model.LstGenero)
                 {
                     @Html.Raw(getSelect<ENT.Ent.TblGenero>(@item.Id,item))
@@ -75,7 +75,7 @@
 
             <div class="col-lg-4 col-md-1 col-sm-1">
                 <label asp-for="OrientacionSexual" class="control-label"></label>
-                <select id="lstOrientacionSexual" name="lstOrientacionSexual" class="form-control">
+                <select id="IdOrientacionSexual" name="IdOrientacionSexual" class="form-control">
                     @foreach (var item in Model.LstOrientacionSexual)
                 {
                     @Html.Raw(getSelect<ENT.Ent.TblOrientacion>(@item.Id,item))
@@ -86,7 +86,7 @@
 
             <div class="col-lg-4 col-md-1 col-sm-1">
                 <label asp-for="IdentidadGenero" class="control-label"></label>
-                <select id="lstIdentidadGenero" name="lstIdentidadGenero" class="form-control">
+                <select id="IdentidadGenero" name="IdentidadGenero" class="form-control">
                     @foreach (var item in Model.LstIdentidadGenero)
                 {
                     @Html.Raw(getSelect<ENT.Ent.TblIdentidaDeGenero>(@item.Id,item))
@@ -98,7 +98,7 @@
         <div class="row">
             <div class="col-lg-4 col-md-1 col-sm-1 col-xl-4">
                 <label asp-for="JornadaTrabajo" class="control-label"></label>
-                <select id="lstJrnTrabajo" name="lstJrnTrabajo" class="form-control">
+                <select id="IdJornadaTrabajo" name="IdJornadaTrabajo" class="form-control">
                     @foreach (var item in Model.LstJornadaTrabajo)
                 {
                     @Html.Raw(getSelect<ENT.Ent.TblJornadaDeTrabajo>(@item.Id,item))
@@ -107,7 +107,7 @@
             </div>
             <div class="col-lg-4 col-md-1 col-sm-1 col-xl-4">
                 <label asp-for="Etnia" class="control-label"></label>
-                <select id="lstEtnia" name="lstEtnia" class="form-control">
+                <select id="Etnia" name="Etnia" class="form-control">
                     @foreach (var item in Model.LstEtnia)
                 {
                     @Html.Raw(getSelect<ENT.Ent.TblEtnia>(@item.Id,item))
@@ -117,7 +117,7 @@
 
             <div class="col-lg-4 col-md-1 col-sm-1 col-xl-4">
                 <label asp-for="Localidad" class="control-label"></label>
-                <select id="lstLocalidad" name="lstLocalidad" class="form-control">
+                <select id="IdLocalidad" name="IdLocalidad" class="form-control">
                     @foreach (var item in Model.LstLocalidad)
                 {
                     @Html.Raw(getSelect<ENT.Ent.TblLocalidadVive>(@item.Id,item))
@@ -129,7 +129,7 @@
         <div class="row">
             <div class="col-lg-4 col-md-1 col-sm-1 col-xl-4">
                 <label asp-for="TipoDiscapacidad" class="control-label"></label>
-                <select id="lstTipoDiscapacidad" name="lstTipoDiscapacidad" class="form-control">
+                <select id="IdTipoDiscapacidad" name="IdTipoDiscapacidad" class="form-control">
                     @foreach (var item in Model.LstDiscapacidad)
                 {
                     @Html.Raw(getSelect<ENT.Ent.TblDiscapacidad>(@item.Id,item))
@@ -138,7 +138,7 @@
             </div>
             <div class="col-lg-4 col-md-1 col-sm-1 col-xl-4">
                 <label asp-for="TipoVivienda" class="control-label"></label>
-                <select id="lstTipoVivienda" name="lstTipoVivienda" class="form-control">
+                <select id="IdTipoVivienda" name="IdTipoVivienda" class="form-control">
                     @foreach (var item in Model.LstTipoVivienda)
                 {
                     @Html.Raw(getSelect<ENT.Ent.TblTipoDeVivienda>(@item.Id,item))
@@ -147,7 +147,7 @@
             </div>
             <div class="col-lg-4 col-md-1 col-sm-1 col-xl-4">
                 <label asp-for="SeguridadSocial" class="control-label"></label>
-                <select id="lstSeguridadSocial" name="lstSeguridadSocial" class="form-control">
+                <select id="IdSeguridadSocial" name="IdSeguridadSocial" class="form-control">
                     @foreach (var item in Model.LstSeguridadSocial)
                 {
                     @Html.Raw(getSelect<ENT.Ent.TblSeguridadSocial>(@item.Id,item))
@@ -159,7 +159,7 @@
         <div class="row">
             <div class="col-lg-4 col-md-1 col-sm-1 col-xl-4">
                 <label asp-for="EstratiSocioEconomico" class="control-label"></label>
-                <select id="lstEstratiSocioEconomico" name="lstEstratiSocioEconomico" class="form-control">
+                <select id="IdEstratiSocioEconomico" name="IdEstratiSocioEconomico" class="form-control">
                     @foreach (var item in Model.LstEstratiSocioEconomico)
                 {
                     @Html.Raw(getSelect<ENT.Ent.TblEstratoSocioEconomico>(@item.Id,item))
@@ -177,7 +177,7 @@
             </div>
             <div class="col-lg-4 col-md-1 col-sm-1">
                 <label asp-for="JornadaTrabajo" class="control-label"></label>
-                <select id="lstJornadaTrabajo" name="lstJornadaTrabajo" class="form-control">
+                <select id="IdJornadaTrabajo" name="IdJornadaTrabajo" class="form-control">
                     @foreach (var item in Model.LstJornadaTrabajo)
                 {
                     @Html.Raw(getSelect<ENT.Ent.TblJornadaDeTrabajo>(@item.Id,item))
@@ -189,7 +189,7 @@
         <div class="row">
             <div class="col-lg-4 col-md-1 col-sm-1 col-xl-4">
                 <label asp-for="NivielEscolaridad" class="control-label"></label>
-                <select id="lstNivielEscolaridad" name="lstNivielEscolaridad" class="form-control">
+                <select id="IdNivielEscolaridad" name="IdNivielEscolaridad" class="form-control">
                     @foreach (var item in Model.LstNivielEscolaridad)
                 {
                     @Html.Raw(getSelect<ENT.Ent.TblNivelDeEscolaridad>(@item.Id,item))
@@ -199,7 +199,7 @@
 
             <div class="col-lg-4 col-md-1 col-sm-1 col-xl-4">
                 <label asp-for="TipoSubsidio" class="control-label"></label>
-                <select id="lstSubsidios" name="lstSubsidios" class="form-control">
+                <select id="IdTipoSubsidio" name="IdTipoSubsidio" class="form-control">
                     @foreach (var item in Model.LstTipoSubsidio)
                 {
                     @Html.Raw(getSelect<ENT.Ent.TblSubsidio>(@item.Id,item))
@@ -210,7 +210,7 @@
                 <label asp-for="EstadoPersona" class="control-label"></label>
                 @{
                 string[] status = { "Inactivo", "Activo" };}
-            @Html.Raw(selectBool("", Model.EstadoPersona,status))
+            @Html.Raw(selectBool("EstadoPersona", Model.EstadoPersona,status))
 
         </div>
     </div>
@@ -219,16 +219,16 @@
         <div class="col-lg-4 col-md-1 col-sm-1 col-xl-4">
             <label asp-for="EsVictimaConflictoA" class="control-label"></label>
 
-            @Html.Raw(selectBool("", Model.EsVictimaConflictoA))
+            @Html.Raw(selectBool("EsVictimaConflictoA", Model.EsVictimaConflictoA))
         </div>
         <div class="col-lg-4 col-md-1 col-sm-1 col-xl-4">
             <label asp-for="EsDiscapacitado" class="control-label"></label>
-            @Html.Raw(selectBool("", Model.EsDiscapacitado))
+            @Html.Raw(selectBool("EsDiscapacitado", Model.EsDiscapacitado))
         </div>
 
         <div class="col-lg-4 col-md-1 col-sm-1 col-xl-4">
             <label asp-for="EsJefeHogar" class="control-label"></label>
-            @Html.Raw(selectBool("", Model.EsJefeHogar))
+            @Html.Raw(selectBool("EsJefeHogar", Model.EsJefeHogar))
         </div>
     </div>
 

@@ -106,20 +106,20 @@ namespace BLL.Implememtation
             PersonaVM persona = new PersonaVM();
             persona = iMapper.Map<TblPersona, PersonaVM>(item);
 
-            persona.TipoDocumento = unitOfWork.TblTipoDocumentoRepository.FindById(item.IdTipoDocumento.Value).Descripcion;
-            persona.Genero = unitOfWork.TblGeneroRepository.FindById(item.ValidarGenero()).Descripcion;
-            persona.OrientacionSexual = unitOfWork.TblOrientacionRepository.FindById(item.ValidarTipoDocumento()).Descripcion;
-            persona.IdentidadGenero = unitOfWork.TblIdentidaDeGeneroRepository.FindById(item.ValidarIdentidadGenero()).Descripcion;
-            persona.Etnia = unitOfWork.TblEtniaRepository.FindById(item.ValidarEtnia()).Descripcion;
-            persona.Localidad = unitOfWork.TblLocalidadViveRepository.FindById(item.ValidarLocalidad()).Descripcion;
-            persona.TipoDiscapacidad = unitOfWork.TblDiscapacidadRepository.FindById(item.ValidarTipoDiscapacidad()).Descripcion;
-            persona.TipoVivienda = unitOfWork.TblTipoDeViviendaRepository.FindById(item.ValidarTipoVivienda()).Descripcion;
-            persona.SeguridadSocial = unitOfWork.TblSeguridadSocialRepository.FindById(item.ValidarSeguridadSocial()).Descripcion;
-            persona.NivielEscolaridad = unitOfWork.TblNivelDeEscolaridadRepository.FindById(item.ValidarNivielEscolaridad()).Descripcion;
-            persona.EstratiSocioEconomico = unitOfWork.TblEstratoSocioEconomicoRepository.FindById(item.ValidarEstratiSocioEconomico()).Descripcion;
-            persona.LocalidadTrabajo = unitOfWork.TblLocalidadTrabajaRepository.FindById(item.ValidarLocalidadTrabajo()).Descripcion;
-            persona.JornadaTrabajo = unitOfWork.TblJornadaDeTrabajoRepository.FindById(item.ValidarJornadaTrabajo()).Descripcion;
-            persona.TipoSubsidio = unitOfWork.TblSubsidioRepository.FindById(item.ValidarSubsidios()).Descripcion;
+            persona.TipoDocumento = unitOfWork.TblTipoDocumentoRepository.FindById(item.IdTipoDocumento.Value)?.Descripcion;
+            persona.Genero = unitOfWork.TblGeneroRepository.FindById(item.ValidarGenero())?.Descripcion;
+            persona.OrientacionSexual = unitOfWork.TblOrientacionRepository.FindById(item.ValidarTipoDocumento())?.Descripcion;
+            persona.IdentidadGenero = unitOfWork.TblIdentidaDeGeneroRepository.FindById(item.ValidarIdentidadGenero())?.Descripcion;
+            persona.Etnia = unitOfWork.TblEtniaRepository.FindById(item.ValidarEtnia())?.Descripcion;
+            persona.Localidad = unitOfWork.TblLocalidadViveRepository.FindById(item.ValidarLocalidad())?.Descripcion;
+            persona.TipoDiscapacidad = unitOfWork.TblDiscapacidadRepository.FindById(item.ValidarTipoDiscapacidad())?.Descripcion;
+            persona.TipoVivienda = unitOfWork.TblTipoDeViviendaRepository.FindById(item.ValidarTipoVivienda())?.Descripcion;
+            persona.SeguridadSocial = unitOfWork.TblSeguridadSocialRepository.FindById(item.ValidarSeguridadSocial())?.Descripcion;
+            persona.NivielEscolaridad = unitOfWork.TblNivelDeEscolaridadRepository.FindById(item.ValidarNivielEscolaridad())?.Descripcion;
+            persona.EstratiSocioEconomico = unitOfWork.TblEstratoSocioEconomicoRepository.FindById(item.ValidarEstratiSocioEconomico())?.Descripcion;
+            persona.LocalidadTrabajo = unitOfWork.TblLocalidadTrabajaRepository.FindById(item.ValidarLocalidadTrabajo())?.Descripcion;
+            persona.JornadaTrabajo = unitOfWork.TblJornadaDeTrabajoRepository.FindById(item.ValidarJornadaTrabajo())?.Descripcion;
+            persona.TipoSubsidio = unitOfWork.TblSubsidioRepository.FindById(item.ValidarSubsidios())?.Descripcion;
             if (selectListFields)
             {
                 persona = MappingPeopleVMSelectList(persona);
@@ -150,15 +150,22 @@ namespace BLL.Implememtation
         public TblPersona Create(PersonaVM person)
         {
             TblPersona persona = new TblPersona();
-            persona = iMapper.Map<PersonaVM,TblPersona>(person);
-           return Create(persona);
+            persona = iMapper.Map<PersonaVM, TblPersona>(person);
+            return unitOfWork.TblPersonaRepository.add(persona);
         }
 
         public TblPersona Put(PersonaVM person)
         {
-             TblPersona persona = new TblPersona();
-            persona = iMapper.Map<PersonaVM,TblPersona>(person);
-            return Put(person);
+            try
+            {
+                TblPersona persona = new TblPersona();
+                persona = iMapper.Map<PersonaVM, TblPersona>(person);
+                return unitOfWork.TblPersonaRepository.Update(persona);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.ToString());
+            }
         }
     }
 }
